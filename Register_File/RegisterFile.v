@@ -11,7 +11,7 @@ module RegisterFile ( input CLK, RST, RegWrite,
     always @(posedge CLK) begin
         if (RST) begin
           for(i = 0; i < 32; i=i+1) begin
-                REGISTER[i] <= 'h0;
+                REGISTER[i] <= 64'h0;
             end
         end
       else if (RegWrite & W_ADDR != 5'd0)
