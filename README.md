@@ -91,3 +91,8 @@ The basic hardware components that can be found here are:
 - [Gray counter](https://github.com/sumukhathrey/Verilog/tree/main/Gray_Counter)
 - [Finonacci counter](https://github.com/sumukhathrey/Verilog/tree/main/Fibonacci)
 - [Round robin arbiter](https://github.com/sumukhathrey/Verilog/tree/main/Round_Robin_Arbiter)
+
+---
+A simple sequence detector can be modelled in several ways -
+  1. Non-overlapping - Here, consider a sequence detector for sequence 1010. For the input sequence `10101010` the output will be `00010001`, i.e. the sequence is detected in a non-overlapping fashion. Once a sequence is detected, the sequence needs to be repeated completely from the start to be dected again.
+  2. Overlapping - Again, consider a sequence detector for sequence 1010. For the input sequence `10101010` the output will be `00010101`, i.e. the sequence is detected in an overlapping fashion. Once a sequence is detected, a new sequence can be detected using a part of the previously detected sequence when applicable.
