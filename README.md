@@ -3,6 +3,8 @@
 
 [Click here](https://www.chipverify.com/verilog/verilog-tutorial) to visit website with extensive documentation of verilog
 
+[Click here](http://www.eng.auburn.edu/~nelsovp/courses/elec4200/VHDL/Verilog_Overview_4200.pdf) to visit an exceptional compilation of basic verilog for ASIC design
+
 ---
 ### Types of Verilog Modelling
 Verilog is one of the Hardware Description Language (HDL) used to model the electronics systems at the following abstraction levels:
