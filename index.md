@@ -1,3 +1,9 @@
+---
+title: Verilog
+layout: template
+filename: index.md
+---
+
 # Verilog
 
 
