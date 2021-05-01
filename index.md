@@ -85,11 +85,20 @@ endmodule
 - Full adder
 - Shifter / Rotator
 
-[Click here to execute](https://github.com/sumukhathrey/Verilog/tree/main/Shifter_Rotator)
+    [Click here to execute](https://github.com/sumukhathrey/Verilog/tree/main/Shifter_Rotator)
+    
 - [Sorting network](https://github.com/sumukhathrey/Verilog/tree/main/Sorting_Network)
 - D flip flop
 - [Divide by 2](https://github.com/sumukhathrey/Verilog/tree/main/Divide_by_2)
 - [Serial in parallel out (SIPO)](https://github.com/sumukhathrey/Verilog/tree/main/SIPO)
+
+  Typically in a Serial in Parallel out circuit, there are as many flops as the size of the parallel out. The input data is shifted in with clk and when all the data bits are available, the serially loaded data is read through the parallel port.
+  
+  Here, say we have 8-bit parallel port, so it takes 8 clk cycles to serially load 8-bits of data and the data is available for 1 clock cycle and then new data starts coming in resulting in the output being stable for only 1 clock cycle. 
+  
+  If there is a need to keep the output data stable until we have the next valid data, we need to use a 2-step architecture as shown below. The data is clocked in to the serial registers at the serial_clk then when valid data is loaded, the serial_clk and parallel_clk are asserted together. This way the data loaded into the output registers stay constant until the next valid data is loaded serially.
+  
+  
 - [Parallel in serial out (PISO)](https://github.com/sumukhathrey/Verilog/tree/main/PISO)
 - [MOD-N counter](https://github.com/sumukhathrey/Verilog/tree/main/Mod-N_Counter)
 - [Sequence Detector (1010)](https://github.com/sumukhathrey/Verilog/tree/main/Sequence_Detector_1010)
@@ -98,10 +107,9 @@ endmodule
     1. Non-overlapping - Here, consider a sequence detector for sequence 1010. For the input sequence `10101010` the output will be `00010001`, i.e. the sequence is detected in a non-overlapping fashion. Once a sequence is detected, the sequence needs to be repeated completely from the start to be dected again.
     2. Overlapping - Again, consider a sequence detector for sequence 1010. For the input sequence `10101010` the output will be `00010101`, i.e. the sequence is detected in an overlapping fashion. Once a sequence is detected, a new sequence can be detected using a part of the previously detected sequence when applicable.
 
-
-  Also, the state machine being used to detect the sequence can be mealy or a moore state machine. This will change the total number of states at some cost to the output functional logic
+    Also, the state machine being used to detect the sequence can be mealy or a moore state machine. This will change the total number of states at some cost to the output functional logic
   
-  The sequence can also be detected using a simple n-bit shift register, where "n" represents the length of the sequence to be detected (in this case 4) and a comparator can be used to check the state of these n-bit registers. However, consider a sequence which has 20 bits, then we will need a 20 bit shift register which happens to be extremely costly in terms of area. The same can be acheived using a state machine with just 5 flip-flops and some additional combinational logic.
+    The sequence can also be detected using a simple n-bit shift register, where "n" represents the length of the sequence to be detected (in this case 4) and a comparator can be used to check the state of these n-bit registers. However, consider a sequence which has 20 bits, then we will need a 20 bit shift register which happens to be extremely costly in terms of area. The same can be acheived using a state machine with just 5 flip-flops and some additional combinational logic.
 
 - [Register File](https://github.com/sumukhathrey/Verilog/tree/main/Register_File)
 - [Synchronous FIFO](https://github.com/sumukhathrey/Verilog/tree/main/Synchronous_FIFO)
