@@ -1,1 +1,5 @@
+site_name: Verilog
+nav:
+    - Home: index.md
+    - About: about.md
 theme: jekyll-theme-leap-day
