@@ -1,14 +1,8 @@
 
-# Verilog
-
-
-[Click here](https://www.chipverify.com/verilog/verilog-tutorial) to visit website with extensive documentation of verilog
-
-[Click here](http://www.eng.auburn.edu/~nelsovp/courses/elec4200/VHDL/Verilog_Overview_4200.pdf) to visit an exceptional compilation of basic verilog for ASIC design
 
 ---
 
-## Contents
+# Contents
 
 - [Types of Verilog Modelling](#types-of-verilog-modelling)
 
@@ -35,7 +29,7 @@
  
 ---
 
-## Types of Verilog Modelling
+# Types of Verilog Modelling
 Verilog is one of the Hardware Description Language (HDL) used to model the electronics systems at the following abstraction levels:
 
   1. Register Transfer Level (RTL) - An abstraction level, where the circuits are modelled as the flow of data between registers. This is achieved through always blocks and assign statements. The RTL should be written in a way such that it is completely synthesizable, i.e., can be translated/synthesized to gate level
@@ -49,7 +43,7 @@ Verilog is one of the Hardware Description Language (HDL) used to model the elec
 ---
 
 
-## Verilog Coding Style
+# Verilog Coding Style
 
 Here, we will try to create exaples of hardware using RTL model and test it using an appropriate testbench. 
 
@@ -108,18 +102,18 @@ endmodule
 ---
 
 
-## Basic hardware components
+# Basic hardware components
 
-### Half adder
-### Full adder
-### Shifter / Rotator
+## Half adder
+## Full adder
+## Shifter / Rotator
 
    [Click here to execute](https://github.com/sumukhathrey/Verilog/tree/main/Shifter_Rotator)
     
-### Sorting network
-### D flip flop
-### Divide by 2
-### Serial in parallel out (SIPO)
+## Sorting network
+## D flip flop
+## Divide by 2
+## Serial in parallel out (SIPO)
 
   Typically in a Serial in Parallel out circuit, there are as many flops as the size of the parallel out. The input data is shifted in with clk and when all the data bits are available, the serially loaded data is read through the parallel port.
   
@@ -128,9 +122,9 @@ endmodule
   If there is a need to keep the output data stable until we have the next valid data, we need to use a 2-step architecture as shown below. The data is clocked in to the serial registers at the serial_clk then when valid data is loaded, the serial_clk and parallel_clk are asserted together. This way the data loaded into the output registers stay constant until the next valid data is loaded serially.
   
   
-### Parallel in serial out (PISO)
-### MOD-N counter
-### Sequence Detector (1010)
+## Parallel in serial out (PISO)
+## MOD-N counter
+## Sequence Detector (1010)
 
   A simple sequence detector can be modelled in several ways -
     1. Non-overlapping - Here, consider a sequence detector for sequence 1010. For the input sequence `10101010` the output will be `00010001`, i.e. the sequence is detected in a non-overlapping fashion. Once a sequence is detected, the sequence needs to be repeated completely from the start to be dected again.
@@ -162,26 +156,36 @@ endmodule
   
    The sequence can also be detected using a simple n-bit shift register, where "n" represents the length of the sequence to be detected (in this case 4) and a comparator can be used to check the state of these n-bit registers. However, consider a sequence which has 20 bits, then we will need a 20 bit shift register which happens to be extremely costly in terms of area. The same can be acheived using a state machine with just 5 flip-flops and some additional combinational logic.
 
-### Register File
-### Synchronous FIFO
+## Register File
+## Synchronous FIFO
 
    [![Run on EDA](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_run-on-eda-playground.png)](https://www.edaplayground.com/x/KpjL)
 
-### Synchronous FIFO with odd depth
+## Synchronous FIFO with odd depth
 
    [![Run on EDA](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_run-on-eda-playground.png)](https://www.edaplayground.com/x/Jmkw)
    
-### Asynchronous FIFO
+## Asynchronous FIFO
 
    [![Run on EDA](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_run-on-eda-playground.png)](https://www.edaplayground.com/x/fabv)
 
-### Asynchronous FIFO with odd depth
-### Last in first out (LIFO)
-### Gray counter
-### Fibonacci counter
-### Round robin arbiter
+## Asynchronous FIFO with odd depth
+## Last in first out (LIFO)
+## Gray counter
+## Fibonacci counter
+## Round robin arbiter
+
+---
+
+# References
 
 
+[Click here](https://www.chipverify.com/verilog/verilog-tutorial) to visit website with extensive documentation of verilog
 
+[Click here](http://www.eng.auburn.edu/~nelsovp/courses/elec4200/VHDL/Verilog_Overview_4200.pdf) to visit an exceptional compilation of basic verilog for ASIC design
+
+---
+
+# About and Contact Info
 
 Website Version: 1.08.007
