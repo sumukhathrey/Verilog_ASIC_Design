@@ -14,6 +14,22 @@
   - Half adder
   - Full adder
   - Shifter / Rotator
+  - [Sorting network](#sorting-network)
+  - D flip flop
+  - [Divide by 2](https://github.com/sumukhathrey/Verilog/tree/main/Divide_by_2)
+  - [Serial in parallel out (SIPO)](https://github.com/sumukhathrey/Verilog/tree/main/SIPO)
+  - [Parallel in serial out (PISO)](https://github.com/sumukhathrey/Verilog/tree/main/PISO)
+  - [MOD-N counter](https://github.com/sumukhathrey/Verilog/tree/main/Mod-N_Counter)
+  - [Sequence Detector (1010)](https://github.com/sumukhathrey/Verilog/tree/main/Sequence_Detector_1010)
+  - [Register File](https://github.com/sumukhathrey/Verilog/tree/main/Register_File)
+  - [Synchronous FIFO](https://github.com/sumukhathrey/Verilog/tree/main/Synchronous_FIFO)
+  - [Synchronous FIFO with odd depth](https://github.com/sumukhathrey/Verilog/tree/main/Synchronous_FIFO_odd_depth)
+  - [Asynchronous FIFO](https://github.com/sumukhathrey/Verilog/tree/main/Asynchronous_FIFO)
+  - Asynchronous FIFO with odd depth
+  - [Last in first out (LIFO)](https://github.com/sumukhathrey/Verilog/tree/main/LIFO)
+  - [Gray counter](https://github.com/sumukhathrey/Verilog/tree/main/Gray_Counter)
+  - [Finonacci counter](https://github.com/sumukhathrey/Verilog/tree/main/Fibonacci)
+  - [Round robin arbiter](https://github.com/sumukhathrey/Verilog/tree/main/Round_Robin_Arbiter)
 
 
 ---
