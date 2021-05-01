@@ -1,7 +1,3 @@
----
-title: Verilog
-filename: index.md
----
 
 # Verilog
 
@@ -11,6 +7,13 @@ filename: index.md
 [Click here](http://www.eng.auburn.edu/~nelsovp/courses/elec4200/VHDL/Verilog_Overview_4200.pdf) to visit an exceptional compilation of basic verilog for ASIC design
 
 ---
+
+[link](#types-of-verilog-modelling)
+
+
+
+---
+
 ## Types of Verilog Modelling
 Verilog is one of the Hardware Description Language (HDL) used to model the electronics systems at the following abstraction levels:
 
