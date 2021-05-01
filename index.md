@@ -83,7 +83,9 @@ endmodule
 
 - Half adder
 - Full adder
-- [Shifter / Rotator](https://github.com/sumukhathrey/Verilog/tree/main/Shifter_Rotator)
+- Shifter / Rotator
+
+[Click here to execute](https://github.com/sumukhathrey/Verilog/tree/main/Shifter_Rotator)
 - [Sorting network](https://github.com/sumukhathrey/Verilog/tree/main/Sorting_Network)
 - D flip flop
 - [Divide by 2](https://github.com/sumukhathrey/Verilog/tree/main/Divide_by_2)
