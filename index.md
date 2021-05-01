@@ -135,7 +135,7 @@ endmodule
     2. Overlapping - Again, consider a sequence detector for sequence 1010. For the input sequence `10101010` the output will be `00010101`, i.e. the sequence is detected in an overlapping fashion. Once a sequence is detected, a new sequence can be detected using a part of the previously detected sequence when applicable.
 
    Also, the state machine being used to detect the sequence can be mealy or a moore state machine. This will change the total number of states at some cost to the output functional logic
-   <img src="https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector_1010/SeqDet_1010_Moore_NonOverlap.jpg" width="100" height="100">
+   <img src="https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector_1010/SeqDet_1010_Moore_NonOverlap.jpg" width="800" height="800">
    ![Sequence Detector 1010 Moore Non-Overlap](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector_1010/SeqDet_1010_Moore_NonOverlap.jpg)
    ![Sequence Detector 1010 Moore Overlap](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector_1010/SeqDet_1010_Moore_Overlap.jpg)
    ![Sequence Detector 1010 Mealy Non-Overlap](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector_1010/SeqDet_1010_Mealy_NonOverlap.jpg)
