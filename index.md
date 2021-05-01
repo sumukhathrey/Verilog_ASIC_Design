@@ -11,11 +11,11 @@
 - [Types of Verilog Modelling](#types-of-verilog-modelling)
 - [Verilog Coding Style](#verilog-coding-style)
 - [Basic hardware components](#basic-hardware-components)
-  - Half adder
-  - Full adder
-  - Shifter / Rotator
+  - [Half adder](#half-adder)
+  - [Full adder](#full-adder)
+  - [Shifter / Rotator](#shifter-rotator)
   - [Sorting network](#sorting-network)
-  - D flip flop
+  - [D flip-flop](#d-flip-flop)
   - [Divide by 2](https://github.com/sumukhathrey/Verilog/tree/main/Divide_by_2)
   - [Serial in parallel out (SIPO)](https://github.com/sumukhathrey/Verilog/tree/main/SIPO)
   - [Parallel in serial out (PISO)](https://github.com/sumukhathrey/Verilog/tree/main/PISO)
@@ -25,7 +25,7 @@
   - [Synchronous FIFO](https://github.com/sumukhathrey/Verilog/tree/main/Synchronous_FIFO)
   - [Synchronous FIFO with odd depth](https://github.com/sumukhathrey/Verilog/tree/main/Synchronous_FIFO_odd_depth)
   - [Asynchronous FIFO](https://github.com/sumukhathrey/Verilog/tree/main/Asynchronous_FIFO)
-  - Asynchronous FIFO with odd depth
+  - [Asynchronous FIFO with odd depth]
   - [Last in first out (LIFO)](https://github.com/sumukhathrey/Verilog/tree/main/LIFO)
   - [Gray counter](https://github.com/sumukhathrey/Verilog/tree/main/Gray_Counter)
   - [Finonacci counter](https://github.com/sumukhathrey/Verilog/tree/main/Fibonacci)
