@@ -141,7 +141,7 @@ endmodule
 ### [Register File](https://github.com/sumukhathrey/Verilog/tree/main/Register_File)
 ### [Synchronous FIFO](https://github.com/sumukhathrey/Verilog/tree/main/Synchronous_FIFO)
 
-   [![Image of Run](https://dabuttonfactory.com/button.png?t=Run+on+EDA+Playground&f=Open+Sans-Bold&ts=26&tc=fff&hp=45&vp=20&c=11&bgt=unicolored&bgc=15d798)](https://www.edaplayground.com/x/KpjL)
+   [![Image of Run](https://github.com/sumukhathrey/Verilog/blob/main/Docs/Images/button_run-on-eda-playground.png)](https://www.edaplayground.com/x/KpjL)
 
 ### [Synchronous FIFO with odd depth](https://github.com/sumukhathrey/Verilog/tree/main/Synchronous_FIFO_odd_depth)
 ### [Asynchronous FIFO](https://github.com/sumukhathrey/Verilog/tree/main/Asynchronous_FIFO)
