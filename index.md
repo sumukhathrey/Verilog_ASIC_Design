@@ -16,7 +16,7 @@
 
   |     |     |     |     |     |
   | --------------- | --------------- | --------------- | --------------- | --------------- |
-  | Row 1 Cell 1 | Row 1 Cell 2 |. |. |. |
+  | [Half adder](#half-adder) | [Full adder](#full-adder) | [Shifter / Rotator](#shifter-rotator) | [Sorting network](#sorting-network) | [D flip-flop](#d-flip-flop) |
   | Row 2 Cell 1 | Row 2 Cell 2 |. |. |. |
 
   - [Half adder](#half-adder)
