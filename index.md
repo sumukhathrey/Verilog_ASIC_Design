@@ -6,7 +6,7 @@
 [Click here](http://www.eng.auburn.edu/~nelsovp/courses/elec4200/VHDL/Verilog_Overview_4200.pdf) to visit an exceptional compilation of basic verilog for ASIC design
 
 ---
-### Types of Verilog Modelling
+## Types of Verilog Modelling
 Verilog is one of the Hardware Description Language (HDL) used to model the electronics systems at the following abstraction levels:
 
   1. Register Transfer Level (RTL) - An abstraction level, where the circuits are modelled as the flow of data between registers. This is achieved through always blocks and assign statements. The RTL should be written in a way such that it is completely synthesizable, i.e., can be translated/synthesized to gate level
@@ -14,9 +14,13 @@ Verilog is one of the Hardware Description Language (HDL) used to model the elec
   2. Behavioral - An abstraction level, which mimics the desired functionality of the hardware but is not necessarily synthesizable. Behavioral verilog is often used to represent analog block, place holder code, testbench code, and most importantly for modelling hardware for behavioral simulation.
 
   3. Structural - Logic described by gates and modules only. No always blocks or assign statements. This is a representative of the real gates in the hardware.
+
+
 ---
 
-### Verilog Coding Style
+
+## Verilog Coding Style
+
 Here, we will try to create exaples of hardware using RTL model and test it using an appropriate testbench. 
 
 The basic structure of code we will follow for hardware modelling the design is as follows:
@@ -70,8 +74,11 @@ module design_name_tb ();
        end
 endmodule
 ```
+
 ---
-The basic hardware components that can be found here are:
+
+
+## Basic hardware components
 - [Half adder]
 - [Full adder]
 - [Shifter / Rotator](https://github.com/sumukhathrey/Verilog/tree/main/Shifter_Rotator)
