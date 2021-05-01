@@ -13,6 +13,9 @@
 - [Types of Verilog Modelling](#types-of-verilog-modelling)
 - [Verilog Coding Style](#verilog-coding-style)
 - [Basic hardware components](#basic-hardware-components)
+
+|Half Adder| Full Adder|
+
   - [Half adder](#half-adder)
   - [Full adder](#full-adder)
   - [Shifter / Rotator](#shifter-rotator)
