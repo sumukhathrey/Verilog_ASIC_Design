@@ -94,9 +94,9 @@ endmodule
 - [MOD-N counter](https://github.com/sumukhathrey/Verilog/tree/main/Mod-N_Counter)
 - [Sequence Detector (1010)](https://github.com/sumukhathrey/Verilog/tree/main/Sequence_Detector_1010)
 
-A simple sequence detector can be modelled in several ways -
-  1. Non-overlapping - Here, consider a sequence detector for sequence 1010. For the input sequence `10101010` the output will be `00010001`, i.e. the sequence is detected in a non-overlapping fashion. Once a sequence is detected, the sequence needs to be repeated completely from the start to be dected again.
-  2. Overlapping - Again, consider a sequence detector for sequence 1010. For the input sequence `10101010` the output will be `00010101`, i.e. the sequence is detected in an overlapping fashion. Once a sequence is detected, a new sequence can be detected using a part of the previously detected sequence when applicable.
+  A simple sequence detector can be modelled in several ways -
+    1. Non-overlapping - Here, consider a sequence detector for sequence 1010. For the input sequence `10101010` the output will be `00010001`, i.e. the sequence is detected in a non-overlapping fashion. Once a sequence is detected, the sequence needs to be repeated completely from the start to be dected again.
+    2. Overlapping - Again, consider a sequence detector for sequence 1010. For the input sequence `10101010` the output will be `00010101`, i.e. the sequence is detected in an overlapping fashion. Once a sequence is detected, a new sequence can be detected using a part of the previously detected sequence when applicable.
 
 - [Register File](https://github.com/sumukhathrey/Verilog/tree/main/Register_File)
 - [Synchronous FIFO](https://github.com/sumukhathrey/Verilog/tree/main/Synchronous_FIFO)
