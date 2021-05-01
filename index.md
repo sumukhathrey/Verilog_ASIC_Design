@@ -14,7 +14,7 @@
 - [Verilog Coding Style](#verilog-coding-style)
 - [Basic hardware components](#basic-hardware-components)
 
-     aa|bbc|cc
+     | | |
      --|--|--
      ee|ff|gg
 
