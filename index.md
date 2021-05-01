@@ -14,6 +14,8 @@ Verilog is one of the Hardware Description Language (HDL) used to model the elec
   2. Behavioral - An abstraction level, which mimics the desired functionality of the hardware but is not necessarily synthesizable. Behavioral verilog is often used to represent analog block, place holder code, testbench code, and most importantly for modelling hardware for behavioral simulation.
 
   3. Structural - Logic described by gates and modules only. No always blocks or assign statements. This is a representative of the real gates in the hardware.
+
+
 ---
 
 ### Verilog Coding Style
