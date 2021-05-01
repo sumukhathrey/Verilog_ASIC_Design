@@ -141,7 +141,7 @@ endmodule
 ### [Register File](https://github.com/sumukhathrey/Verilog/tree/main/Register_File)
 ### [Synchronous FIFO](https://github.com/sumukhathrey/Verilog/tree/main/Synchronous_FIFO)
 
-   [![N|Solid](https://github.com/sumukhathrey/Verilog/blob/main/Docs/Images/button_run-on-eda-playground.png)](https://www.edaplayground.com/x/KpjL)
+   [![N_Solid](https://github.com/sumukhathrey/Verilog/blob/main/Docs/Images/button_run-on-eda-playground.png)](https://www.edaplayground.com/x/KpjL)
 
 ### [Synchronous FIFO with odd depth](https://github.com/sumukhathrey/Verilog/tree/main/Synchronous_FIFO_odd_depth)
 ### [Asynchronous FIFO](https://github.com/sumukhathrey/Verilog/tree/main/Asynchronous_FIFO)
@@ -154,4 +154,4 @@ endmodule
 
 
 
-Website Version: 1.08.002
+Website Version: 1.08.003
