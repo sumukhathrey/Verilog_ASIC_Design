@@ -8,25 +8,27 @@
 
 ---
 
+## Contents
+
 - [Types of Verilog Modelling](#types-of-verilog-modelling)
 - [Verilog Coding Style](#verilog-coding-style)
 - [Basic hardware components](#basic-hardware-components)
   - [Half adder](#half-adder)
   - [Full adder](#full-adder)
-  - [Shifter / Rotator](#shifter-/-rotator)
+  - [Shifter / Rotator](#shifter-rotator)
   - [Sorting network](#sorting-network)
   - [D flip-flop](#d-flip-flop)
-  - [Divide by 2](#d-flip-flop)
-  - [Serial in parallel out (SIPO)](#d-flip-flop)
-  - [Parallel in serial out (PISO)](#d-flip-flop)
-  - [MOD-N counter](#d-flip-flop)
-  - [Sequence Detector (1010)](#d-flip-flop)
-  - [Register File](#d-flip-flop)
-  - [Synchronous FIFO](#d-flip-flop)
-  - [Synchronous FIFO with odd depth](#d-flip-flop)
-  - [Asynchronous FIFO](#d-flip-flop)
+  - [Divide by 2](#divide-by-2)
+  - [Serial in parallel out (SIPO)](#serial-in-parallel-out-sipo)
+  - [Parallel in serial out (PISO)](#parallel-in-serial-out-piso)
+  - [MOD-N counter](#mod-n-counter)
+  - [Sequence Detector (1010)](#sequence-detector-1010)
+  - [Register File](#register-file)
+  - [Synchronous FIFO](#ynchronous-fifo)
+  - [Synchronous FIFO with odd depth](#synchronous-fifo-with-odd-depth)
+  - [Asynchronous FIFO](#asynchronous-fifo)
   - [Asynchronous FIFO with odd depth]
-  - [Last in first out (LIFO)](#last-in-first-out-LIFO)
+  - [Last in first out (LIFO)](#last-in-first-out-lifo)
   - [Gray counter](#gray-counter)
   - [Fibonacci counter](#fibonacci-counter)
   - [Round robin arbiter](#round-robin-arbiter)
@@ -146,7 +148,7 @@ endmodule
 ### Asynchronous FIFO with odd depth
 ### [Last in first out (LIFO)](https://github.com/sumukhathrey/Verilog/tree/main/LIFO)
 ### [Gray counter](https://github.com/sumukhathrey/Verilog/tree/main/Gray_Counter)
-### [Finonacci counter](https://github.com/sumukhathrey/Verilog/tree/main/Fibonacci)
+### [Fibonacci counter](https://github.com/sumukhathrey/Verilog/tree/main/Fibonacci)
 ### [Round robin arbiter](https://github.com/sumukhathrey/Verilog/tree/main/Round_Robin_Arbiter)
 
 
