@@ -16,8 +16,6 @@ Verilog is one of the Hardware Description Language (HDL) used to model the elec
   3. Structural - Logic described by gates and modules only. No always blocks or assign statements. This is a representative of the real gates in the hardware.
 
 
----
-
 ### Verilog Coding Style
 Here, we will try to create exaples of hardware using RTL model and test it using an appropriate testbench. 
 
