@@ -17,13 +17,14 @@
   |     |     |     |     |     |
   | --------------- | --------------- | --------------- | --------------- | --------------- |
   | [Half adder](#half-adder) | [Full adder](#full-adder) | [Shifter / Rotator](#shifter-rotator) | [Sorting network](#sorting-network) | [D flip-flop](#d-flip-flop) |
-  | Row 2 Cell 1 | Row 2 Cell 2 |. |. |. |
+  | [Divide by 2](#divide-by-2) | [Serial in parallel out (SIPO)](#serial-in-parallel-out-sipo) | [Parallel in serial out (PISO)](#parallel-in-serial-out-piso) | [MOD-N counter](#mod-n-counter) | [Sequence Detector (1010)](#sequence-detector-1010) |
 
   - [Half adder](#half-adder)
   - [Full adder](#full-adder)
   - [Shifter / Rotator](#shifter-rotator)
   - [Sorting network](#sorting-network)
   - [D flip-flop](#d-flip-flop)
+  - 
   - [Divide by 2](#divide-by-2)
   - [Serial in parallel out (SIPO)](#serial-in-parallel-out-sipo)
   - [Parallel in serial out (PISO)](#parallel-in-serial-out-piso)
