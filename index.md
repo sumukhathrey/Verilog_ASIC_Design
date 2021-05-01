@@ -81,8 +81,8 @@ endmodule
 
 ## Basic hardware components
 
-### Half adder
-### Full adder
+### - Half adder
+### - Full adder
 ### [Shifter / Rotator](https://github.com/sumukhathrey/Verilog/tree/main/Shifter_Rotator)
 ### [Sorting network](https://github.com/sumukhathrey/Verilog/tree/main/Sorting_Network)
 ### D flip flop
