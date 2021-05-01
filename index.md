@@ -25,7 +25,9 @@
   | [Gray counter](#gray-counter) | [Fibonacci counter](#fibonacci-counter) | [Round robin arbiter](#round-robin-arbiter)
 
 
-
+- Pipelined CPU
+- Multicycle CPU
+- Tomasulo CPU
 ---
 
 ## Types of Verilog Modelling
