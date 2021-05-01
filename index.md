@@ -135,6 +135,11 @@ endmodule
     2. Overlapping - Again, consider a sequence detector for sequence 1010. For the input sequence `10101010` the output will be `00010101`, i.e. the sequence is detected in an overlapping fashion. Once a sequence is detected, a new sequence can be detected using a part of the previously detected sequence when applicable.
 
    Also, the state machine being used to detect the sequence can be mealy or a moore state machine. This will change the total number of states at some cost to the output functional logic
+   
+   ![Sequence Detector 1010 Moore Non-Overlap](https://github.com/sumukhathrey/Verilog/blob/main/Sequence_Detector_1010/SeqDet_1010_Moore_NonOverlap.jpg)
+   ![Sequence Detector 1010 Moore Overlap](https://github.com/sumukhathrey/Verilog/blob/main/Sequence_Detector_1010/SeqDet_1010_Moore_Overlap.jpg)
+   ![Sequence Detector 1010 Mealy Non-Overlap](https://github.com/sumukhathrey/Verilog/blob/main/Sequence_Detector_1010/SeqDet_1010_Mealy_NonOverlap.jpg)
+   ![Sequence Detector 1010 Mealy Overlap](https://github.com/sumukhathrey/Verilog/blob/main/Sequence_Detector_1010/SeqDet_1010_Mealy_Overlap.jpg)
   
    The sequence can also be detected using a simple n-bit shift register, where "n" represents the length of the sequence to be detected (in this case 4) and a comparator can be used to check the state of these n-bit registers. However, consider a sequence which has 20 bits, then we will need a 20 bit shift register which happens to be extremely costly in terms of area. The same can be acheived using a state machine with just 5 flip-flops and some additional combinational logic.
 
@@ -154,4 +159,4 @@ endmodule
 
 
 
-Website Version: 1.08.003
+Website Version: 1.08.004
