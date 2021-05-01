@@ -26,8 +26,11 @@
 
 
 - Pipelined CPU
+
 - Multicycle CPU
+
 - Tomasulo CPU
+ 
 ---
 
 ## Types of Verilog Modelling
