@@ -14,7 +14,9 @@
 - [Verilog Coding Style](#verilog-coding-style)
 - [Basic hardware components](#basic-hardware-components)
 
-|Half Adder| Full Adder|
+aa|bb|cc
+--|--|--
+ee|ff|gg
 
   - [Half adder](#half-adder)
   - [Full adder](#full-adder)
