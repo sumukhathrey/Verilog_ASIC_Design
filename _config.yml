@@ -1,4 +1,4 @@
 nav:
     - Home: index.md
     - About: about.md
-theme: jekyll-theme-midnight
+theme: jekyll-theme-cayman
