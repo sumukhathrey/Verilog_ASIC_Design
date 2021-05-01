@@ -1,3 +1,9 @@
+---
+title: About
+layout: template
+filename: about.md
+--- 
+
 Verilog
 Click here to visit website with extensive documentation of verilog
 
