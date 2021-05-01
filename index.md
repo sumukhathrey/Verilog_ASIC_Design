@@ -14,7 +14,7 @@
   - Half adder
   - Full adder
   - Shifter / Rotator
-  - [Sorting network](#sorting-network)
+  - [Sorting network](##sorting-network)
   - D flip flop
   - [Divide by 2](https://github.com/sumukhathrey/Verilog/tree/main/Divide_by_2)
   - [Serial in parallel out (SIPO)](https://github.com/sumukhathrey/Verilog/tree/main/SIPO)
