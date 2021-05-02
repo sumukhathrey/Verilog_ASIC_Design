@@ -182,7 +182,7 @@ However, sometines a latch can be inferred in a verilog code unexpectedly due to
    
    Figure: Sorting 4 numbers using CAS blocks in ascending and descending order
    
-   ![sorting_networks_8nos](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sorting_Network/sorting_network_8nos.jpg)
+   ![sorting_networks_8nos](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sorting_Network/sorting_network_8nos.png)
    
    Figure: Sorting 8 numbers using CAS blocks in ascending order
    
