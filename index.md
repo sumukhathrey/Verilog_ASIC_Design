@@ -274,6 +274,10 @@ module dff (input d, clk, srst,
 endmodule 
 ```
 
+When this code is synthesized, the derivel logic block is as follows - 
+
+![dff_sreset](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/dff_sreset.png)
+
 Verilog code for D flip-flop with active-low asynchronous reset - 
 
 ```verilog
@@ -287,6 +291,30 @@ module dff (input D, clk, arst,
     end 
 endmodule 
 ```
+
+When this code is synthesized, the derivel logic block is as follows - 
+
+![dff_areset](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/dff_areset.png)
+
+Verilog code for D flip-flop with active-low asynchronous reset - 
+
+```verilog
+module dff (input D, clk, arst, srst
+	    output reg Q); 
+    always @ (posedge clk or negedge arst) begin
+        if (~arst)
+            Q <= 1'b0; 
+	else if (srst)
+	    Q <= 1'b0;
+	else 
+	    Q <= D; 
+    end 
+endmodule 
+```
+
+When this code is synthesized, the derivel logic block is as follows - 
+
+![dff_areset](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/dff_sreset_areset.png)
 
 ## Divide by 2
 ## Serial in parallel out (SIPO)
