@@ -130,6 +130,8 @@ However, sometines a latch can be inferred in a verilog code unexpectedly due to
 
 
 2. Coverage not provided for all cases in an if-statement or case-statement
+
+	In the following case , we have a case where q = d for en = 1. However, the tool does not know what to do when en = 0, and infers a latch
    ```verilog
    always @(d or q)    
    begin               
@@ -137,7 +139,7 @@ However, sometines a latch can be inferred in a verilog code unexpectedly due to
      	  	      // will be held through latch
    end
    ```
-
+	Similarly, in the following case, if default case is missing in case statement and we don't have coverage for all possible cases, a latch is inferred.
    ```verilog
    always @(d or q)    
    begin               
@@ -151,7 +153,7 @@ However, sometines a latch can be inferred in a verilog code unexpectedly due to
    end
    ```
 
-
+> NOTE - Latches are only generated with combinational always blocks. Sequential always block will never generate a latch. 
 ---
 
 
