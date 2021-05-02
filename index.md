@@ -182,22 +182,32 @@ However, sometines a latch can be inferred in a verilog code unexpectedly due to
    
    ![full_adder](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/full_adder.png)
    
-   The same can be written in verilog as - 
+   The same can be written in verilog in many different ways- 
+   
+   ```verilog
+   module full_adder (input a, b, cin
+   		      output sum, cout);
+		wire x, y, z;
+		assign x = a ^ b;
+		assign sum = x ^ cin;
+		assign y = a & b;
+		assign z = x & cin;
+		assign cout = y | z;
+   endmodule
+   ```
+   
+   ```verilog
+   module full_adder (input a, b, cin
+   		      output sum, cout);
+		assign {cout, sum} = a + b;
+   endmodule
+   ```
    
    ```verilog
    module full_adder (input a, b, cin
    		      output sum, cout);
 		assign sum = a ^ b ^ cin;
 		assign cout = (a & b) | ((a ^ b) & cin);
-   endmodule
-   ```
-   
-   It can also be written as - 
-   
-   ```verilog
-   module full_adder (input a, b, cin
-   		      output sum, cout);
-		assign {cout, sum} = a + b;
    endmodule
    ```
 
