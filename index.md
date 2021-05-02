@@ -120,13 +120,13 @@ endmodule
 However, sometines a latch can be inferred in a verilog code unexpectedly due to incorrect coding practice such as when a combinational logic has undefined states. These can be - 
 - Signal missing in the sensitivity list
 
-```verilog
-always @(a or b)
-begin
-  out = a + b + c;  // Here, a latch is inferred for c, 
+  ```verilog
+  always @(a or b)
+  begin
+    out = a + b + c;  // Here, a latch is inferred for c, 
                     // since it is missing from sensitivity list
-end
-```
+  end
+  ```
 
 
 - Coverage not provided for all cases in an if-statement or case-statement
