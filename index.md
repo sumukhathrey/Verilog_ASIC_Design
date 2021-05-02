@@ -203,22 +203,22 @@ However, sometines a latch can be inferred in a verilog code unexpectedly due to
    Also, the state machine being used to detect the sequence can be mealy or a moore state machine. This will change the total number of states at some cost to the output functional logic
    
    
-   <img src="https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector_1010/SeqDet_1010_Moore_NonOverlap.jpg" width="650" height="800">
+   ![moore_nonoverlap](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector_1010/SeqDet_1010_Moore_NonOverlap.jpeg)
    
    Figure: Sequence Detector 1010 - Moore non-overlapping state machine. 
    
    
-   <img src="https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector_1010/SeqDet_1010_Moore_Overlap.jpg" width="650" height="800">
+   ![moore_overlap](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector_1010/SeqDet_1010_Moore_Overlap.jpeg)
    
    Figure: Sequence Detector 1010 - Moore overlapping state machine. 
    
    
-   <img src="https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector_1010/SeqDet_1010_Mealy_NonOverlap.jpg" width="650" height="800">
+   ![mealy_nonoverlap](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector_1010/SeqDet_1010_Mealy_NonOverlap.jpeg)
    
    Figure: Sequence Detector 1010 - Mealy non-overlapping state machine. 
    
    
-   <img src="https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector_1010/SeqDet_1010_Mealy_Overlap.jpg" width="650" height="800">
+   ![mealy_overlap](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector_1010/SeqDet_1010_Mealy_Overlap.jpeg)
    
    Figure: Sequence Detector 1010 - Mealy overlapping state machine. 
    
