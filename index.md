@@ -169,7 +169,11 @@ However, sometines a latch can be inferred in a verilog code unexpectedly due to
    The same can be written in verilog as - 
    
    ```verilog
-   
+   module half_adder (input a, b,
+   		      output sum, cout);
+	assign sum = a ^ b;
+	assign cout = a & b;
+   endmodule
    ```
 
 ## Full adder
@@ -181,9 +185,21 @@ However, sometines a latch can be inferred in a verilog code unexpectedly due to
    The same can be written in verilog as - 
    
    ```verilog
-   
+   module full_adder (input a, b, cin
+   		      output sum, cout);
+	assign sum = a ^ b ^ cin;
+	assign cout = (a & b) | ((a ^ b) & cin);
+   endmodule
    ```
-
+   
+   It can also be written as - 
+   
+   ```verilog
+   module full_adder (input a, b, cin
+   		      output sum, cout);
+	assign {cout, sum} = a + b;
+   endmodule
+   ```
 
 ## Shifter / Rotator
 
