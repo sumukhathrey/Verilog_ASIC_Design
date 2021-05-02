@@ -210,25 +210,14 @@ However, sometines a latch can be inferred in a verilog code unexpectedly due to
    Also, the state machine being used to detect the sequence can be mealy or a moore state machine. This will change the total number of states at some cost to the output functional logic
    
    
-   ![moore_nonoverlap](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector_1010/SeqDet_1010_Moore_NonOverlap.jpeg)
+   ![moore_1010](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector_1010/moore_1010.png)
    
-   Figure: Sequence Detector 1010 - Moore non-overlapping state machine. 
-   
-   
-   ![moore_overlap](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector_1010/SeqDet_1010_Moore_Overlap.jpeg)
-   
-   Figure: Sequence Detector 1010 - Moore overlapping state machine. 
+   Figure: Sequence Detector 1010 - Moore non-overlapping and overlapping state machine. 
    
    
-   ![mealy_nonoverlap](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector_1010/SeqDet_1010_Mealy_NonOverlap.jpeg)
+   ![mealy_1010](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector_1010/mealy_1010.png)
    
-   Figure: Sequence Detector 1010 - Mealy non-overlapping state machine. 
-   
-   
-   ![mealy_overlap](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector_1010/SeqDet_1010_Mealy_Overlap.jpeg)
-   
-   Figure: Sequence Detector 1010 - Mealy overlapping state machine. 
-   
+   Figure: Sequence Detector 1010 - Mealy non-overlapping and overlapping state machine.  
    
   
    The sequence can also be detected using a simple n-bit shift register, where "n" represents the length of the sequence to be detected (in this case 4) and a comparator can be used to check the state of these n-bit registers. However, consider a sequence which has 20 bits, then we will need a 20 bit shift register which happens to be extremely costly in terms of area. The same can be acheived using a state machine with just 5 flip-flops and some additional combinational logic.
