@@ -323,8 +323,15 @@ When this code is synthesized, the derivel logic block is as follows -
   
   Here, say we have 8-bit parallel port, so it takes 8 clk cycles to serially load 8-bits of data and the data is available for 1 clock cycle and then new data starts coming in resulting in the output being stable for only 1 clock cycle. 
   
+  ![sipo_basic](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/SIPO/sipo_basic.png)
+  
+  Figure 1: Basic serial-in-parallel-out circuit
+  
   If there is a need to keep the output data stable until we have the next valid data, we need to use a 2-step architecture as shown below. The data is clocked in to the serial registers at the serial_clk then when valid data is loaded, the serial_clk and parallel_clk are asserted together. This way the data loaded into the output registers stay constant until the next valid data is loaded serially.
   
+  ![sipo_capture_reg](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/SIPO/sipo_capture_reg.png)
+  
+  Figure 2: Serial-in-parallel-out circuit with capture register
   
 ## Parallel in serial out (PISO)
 ## MOD-N counter
