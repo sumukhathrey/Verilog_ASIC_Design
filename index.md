@@ -124,7 +124,7 @@ However, sometines a latch can be inferred in a verilog code unexpectedly due to
   always @(a or b)
   begin
     out = a + b + c;  // Here, a latch is inferred for c, 
-                    // since it is missing from sensitivity list
+                      // since it is missing from sensitivity list
   end
   ```
 
@@ -134,7 +134,7 @@ However, sometines a latch can be inferred in a verilog code unexpectedly due to
   always @(d or q)    
   begin               
     if (en) q = d;    // Condition missing for en = 0; previous value 	
-    				        // will be held through latch
+    	  	      // will be held through latch
   end
   ```
 
@@ -145,8 +145,8 @@ However, sometines a latch can be inferred in a verilog code unexpectedly due to
 		  2'b00: q = 0;
 		  2'b01: q = 1;
 		  2'b10: q = 1; // default condition missing; latch will be 									  
-					        // inferred for condition d = 2'b11 to hold the 											
-					        // previous value
+				// inferred for condition d = 2'b11 to hold the
+				// previous value
 	  endcase
   end
   ```
