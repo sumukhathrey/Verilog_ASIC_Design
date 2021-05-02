@@ -259,6 +259,18 @@ However, sometines a latch can be inferred in a verilog code unexpectedly due to
    Additional information about sorting networks can be found [here](http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/chap28.htm) and [here](http://www.cs.kent.edu/~batcher/sort.pdf)
    
 ## D flip flop
+
+```verilog
+	module dff (input D,clk,srst,
+		    output Q); 
+		always @(posedge clk) begin
+			if(sync_reset==1'b1)
+				Q <= 1'b0; 
+			else 
+				Q <= D; 
+		end 
+	endmodule 
+```
 ## Divide by 2
 ## Serial in parallel out (SIPO)
 
