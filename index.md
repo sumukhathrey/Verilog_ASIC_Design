@@ -261,16 +261,29 @@ However, sometines a latch can be inferred in a verilog code unexpectedly due to
 ## D flip flop
 
 ```verilog
-	module dff (input D,clk,srst,
-		    output Q); 
-		always @(posedge clk) begin
-			if(sync_reset==1'b1)
-				Q <= 1'b0; 
-			else 
-				Q <= D; 
-		end 
-	endmodule 
+module dff (input D,clk,srst,
+	    output Q); 
+	always @(posedge clk) begin
+		if (srst == 1'b1)
+			Q <= 1'b0; 
+		else 
+			Q <= D; 
+	end 
+endmodule 
 ```
+
+```verilog
+module dff (input D, clk, arst,
+	    output Q); 
+	always @(posedge clk or negedge arst) begin
+		if (arst == 1'b1)
+			Q <= 1'b0; 
+		else 
+			Q <= D; 
+	end 
+endmodule 
+```
+
 ## Divide by 2
 ## Serial in parallel out (SIPO)
 
