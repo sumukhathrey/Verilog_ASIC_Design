@@ -168,6 +168,9 @@ However, sometines a latch can be inferred in a verilog code unexpectedly due to
    [Click here to execute](https://github.com/sumukhathrey/Verilog/tree/main/Shifter_Rotator)
     
 ## Sorting network
+
+   Additional information about sorting networks can be found [here](http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/chap28.htm) and [here](http://www.cs.kent.edu/~batcher/sort.pdf)
+   
 ## D flip flop
 ## Divide by 2
 ## Serial in parallel out (SIPO)
