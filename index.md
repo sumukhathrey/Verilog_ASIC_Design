@@ -118,7 +118,7 @@ endmodule
 ```
 
 However, sometines a latch can be inferred in a verilog code unexpectedly due to incorrect coding practice such as when a combinational logic has undefined states. These can be - 
-- Signal missing in the sensitivity list
+1. Signal missing in the sensitivity list
 
   ```verilog
   always @(a or b)
@@ -129,7 +129,7 @@ However, sometines a latch can be inferred in a verilog code unexpectedly due to
   ```
 
 
-- Coverage not provided for all cases in an if-statement or case-statement
+2. Coverage not provided for all cases in an if-statement or case-statement
   ```verilog
   always @(d or q)    
   begin               
