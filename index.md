@@ -175,7 +175,7 @@ However, sometines a latch can be inferred in a verilog code unexpectedly due to
    Figure: Compare and Swap Block
    
    
-   [sorting_networks_components]("https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sorting_Network/sorting_network.jpg")
+   ![sorting_networks_components]("https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sorting_Network/sorting_network.jpg")
    
    Figure: Sorting Networks and its components 
    
