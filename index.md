@@ -169,6 +169,16 @@ However, sometines a latch can be inferred in a verilog code unexpectedly due to
     
 ## Sorting network
 
+
+   <img src="https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sorting_Network/cas_block.jpg">
+   
+   Figure: Compare and Swap Block
+   
+   
+   <img src="https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sorting_Network/sorting_network.jpg">
+   
+   Figure: Sorting Networks and its components 
+   
    Additional information about sorting networks can be found [here](http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/chap28.htm) and [here](http://www.cs.kent.edu/~batcher/sort.pdf)
    
 ## D flip flop
