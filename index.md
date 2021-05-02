@@ -168,23 +168,38 @@ However, sometines a latch can be inferred in a verilog code unexpectedly due to
    [Click here to execute](https://github.com/sumukhathrey/Verilog/tree/main/Shifter_Rotator)
     
 ## Sorting network
-
+	
+   Sorting is a very important task generally performed through software, however, in hing sorting demand operations such as artificial intelligence and databases it becomes a necessity to implement sorting through hardware to speedup the process. This is implemented in hardware through a basic building block called ***compare and swap (CAS)*** block. The CAS block is connected in a certain way called bitonic network to sort the given set of numbers.
 
    ![sorting_networks_cas_blocks](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sorting_Network/cas_block.png)
    
-   Figure: Compare and Swap Block
+   Figure 1: Compare and Swap Block
+   
+   The CAS block has two inputs, ***A*** and ***B*** and has two outputs ****O1 = max(A,B)*** and ***O2 = min(A,B)***. A CAS block is made up of an n-bit comparator, two n-bit multiplexers to select from inputs A and B where n-bit is the data width of A and B. There can be two configurations of the CAS block to sort the numbers in an ascending or descending order.
+   
+   To differentiate between the ascending and decending order CAS blocks, we use arrows to depict the type of sort. The arrow-head indicates port with ***max*** output and the arrow-root indicates the port with the ***min*** output.
    
    ![sorting_networks_components](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sorting_Network/sorting_network_blocks.png)
    
-   Figure: Ascending and descending CAS blocks
+   Figuren 2: Ascending and descending CAS blocks
+   
+   A sorting network is a combination of CAS blocks, where each CAS block takes two inputs and swaps it if required, based on its ascending or descending configuration. Bitonic sort uses the procedure of ***bitonic merge (BM)***, given two equal size sets of input data, sorted in opposing directions, the BM procedure will create a combined set of sorted data. It recursively merges an ascending and a descending set of size N /2 to make a sorted set of size N. Figure 3 and Figure 4 shows the CAS network for a 4-input and 8-input bitonic sorting network made up of ascending and descending BM units. 
+   
+   The total number of CAS blocks in any N-input bitonic sorting is N × log2 ( N ) × (log2( N ) + 1)/4. The folloing table shows the CAS blocks needed for N-input bitonic networks.
+   
+   | Input data numbers |  8 | 16 | 32 | 256 |
+   | ------------------ | -- | -- | -- | --- |
+   | CAS blocks needed in sorting network | 24 | 80 | 240 | 4608 | 
    
    ![sorting_networks_4nos](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sorting_Network/sorting_network_4nos.png)
    
-   Figure: Sorting 4 numbers using CAS blocks in ascending and descending order
+   Figure 3: Sorting 4 numbers using CAS blocks in ascending and descending order
    
    ![sorting_networks_8nos](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sorting_Network/sorting_network_8nos.png)
    
-   Figure: Sorting 8 numbers using CAS blocks in ascending order
+   Figure 4: Sorting 8 numbers using CAS blocks in ascending order
+   
+   The information found here was referred from an outstanding paper[Low-Cost Sorting Network Circuits Using Unary Processing](https://ieeexplore.ieee.org/document/8338366)
    
    Additional information about sorting networks can be found [here](http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/chap28.htm) and [here](http://www.cs.kent.edu/~batcher/sort.pdf)
    
