@@ -170,7 +170,7 @@ However, sometines a latch can be inferred in a verilog code unexpectedly due to
 ## Sorting network
 
 
-   <img src="https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sorting_Network/cas_block.jpg" width="600" height="600">
+   <img src="https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sorting_Network/cas_block.jpg" width="400" height="400">
    
    Figure: Compare and Swap Block
    
