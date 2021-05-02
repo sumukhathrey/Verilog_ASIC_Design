@@ -152,8 +152,8 @@ However, sometines a latch can be inferred in a verilog code unexpectedly due to
 	    endcase
    end
    ```
-
-	> NOTE - Latches are only generated with combinational always blocks. Sequential always block will never generate a latch. 
+ 
+ <span style="color:red"> Note: Latches are only generated with combinational always blocks. Sequential always block will never generate a latch.</span>
 ---
 
 
