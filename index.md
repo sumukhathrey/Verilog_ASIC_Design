@@ -162,7 +162,29 @@ However, sometines a latch can be inferred in a verilog code unexpectedly due to
 # Basic hardware components
 
 ## Half adder
+   The half adder circuit is realized as shown in Figure 1. The block has two inputs ***a*** & ***b***, and two outputs ***sum*** and ***cout***
+   
+   ![half_adder](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/half_adder.png)
+   
+   The same can be written in verilog as - 
+   
+   ```verilog
+   
+   ```
+
 ## Full adder
+
+   The half adder circuit is realized as shown in Figure 1. The block has two inputs ***a***, ***b*** & ***cin***, and two outputs ***sum*** and ***cout***
+   
+   ![full_adder](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/full_adder.png)
+   
+   The same can be written in verilog as - 
+   
+   ```verilog
+   
+   ```
+
+
 ## Shifter / Rotator
 
    [Click here to execute](https://github.com/sumukhathrey/Verilog/tree/main/Shifter_Rotator)
