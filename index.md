@@ -8,6 +8,8 @@
 
 - [Verilog Coding Style](#verilog-coding-style)
 
+- [Latches in Verilog](#latches-in-verilog)
+
 - [Basic hardware components](#basic-hardware-components)
 
   | [Half adder](#half-adder) | [Full adder](#full-adder) | [Shifter / Rotator](#shifter-rotator) |
@@ -98,6 +100,57 @@ module design_name_tb ();
        end
 endmodule
 ```
+
+---
+
+# Latches in Verilog
+
+The latch is modelled in verilog as 
+
+```verilog
+module d_latch (input en, d,
+                output q);
+    always @ (*) begin
+        if (clk)
+            q = d;
+    end
+endmodule
+```
+
+However, sometines a latch can be inferred in a verilog code unexpectedly due to incorrect coding practice such as when a combinational logic has undefined states. These can be - 
+- Signal missing in the sensitivity list
+
+```verilog
+always @(a or b)
+begin
+  out = a + b + c;  // Here, a latch is inferred for c, 
+                    // since it is missing from sensitivity list
+end
+```
+
+
+- Coverage not provided for all cases in an if-statement or case-statement
+```verilog
+always @(d or q)    
+begin               
+  if (en) q = d;    // Condition missing for en = 0; previous value 	
+    				        // will be held through latch
+end
+```
+
+```verilog
+always @(d or q)    
+begin               
+	case (d)
+		2'b00: q = 0;
+		2'b01: q = 1;
+		2'b10: q = 1; // default condition missing; latch will be 									  
+					        // inferred for condition d = 2'b11 to hold the 											
+					        // previous value
+	endcase
+end
+```
+
 
 ---
 
