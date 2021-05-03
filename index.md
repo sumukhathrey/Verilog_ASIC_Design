@@ -223,7 +223,7 @@ However, sometines a latch can be inferred in a verilog code unexpectedly due to
 	
    Sorting is a very important task generally performed through software, however, in hing sorting demand operations such as artificial intelligence and databases it becomes a necessity to implement sorting through hardware to speedup the process. This is implemented in hardware through a basic building block called ***compare and swap (CAS)*** block. The CAS block is connected in a certain way called bitonic network to sort the given set of numbers.
 
-   ![sorting_networks_cas_blocks](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sorting_Network/cas_block.png)
+   ![sorting_networks_cas_blocks](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sorting_Network/sorting_network_blocks.png)
    
    Figure 1: Compare and Swap Block
    
@@ -259,6 +259,9 @@ However, sometines a latch can be inferred in a verilog code unexpectedly due to
    
 ## D flip flop
 
+
+![dff](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/dff.png)
+
 Verilog code for D flip-flop with active-high synchronous reset - 
 
 ```verilog
@@ -273,9 +276,6 @@ module dff (input d, clk, srst,
 endmodule 
 ```
 
-When this code is synthesized, the derivel logic block is as follows - 
-
-![dff_sreset](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/dff_sreset.png)
 
 Verilog code for D flip-flop with active-low asynchronous reset - 
 
@@ -291,9 +291,6 @@ module dff (input D, clk, arst,
 endmodule 
 ```
 
-When this code is synthesized, the derivel logic block is as follows - 
-
-![dff_areset](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/dff_areset.png)
 
 Verilog code for D flip-flop with active-low asynchronous reset - 
 
@@ -311,9 +308,6 @@ module dff (input D, clk, arst, srst
 endmodule 
 ```
 
-When this code is synthesized, the derivel logic block is as follows - 
-
-![dff_areset](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/dff_sreset_areset.png)
 
 ## Divide by 2
 
