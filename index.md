@@ -317,6 +317,12 @@ When this code is synthesized, the derivel logic block is as follows -
 ![dff_areset](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/dff_sreset_areset.png)
 
 ## Divide by 2
+
+Synthesized divide by 2 circuit is as shown below - 
+
+![div_by_2](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Divide_by_2/div_by_2.png)
+
+
 ## Serial in parallel out (SIPO)
 
   Typically in a Serial in Parallel out circuit, there are as many flops as the size of the parallel out. The input data is shifted in with clk and when all the data bits are available, the serially loaded data is read through the parallel port.
@@ -357,6 +363,12 @@ When this code is synthesized, the derivel logic block is as follows -
    The sequence can also be detected using a simple n-bit shift register, where "n" represents the length of the sequence to be detected (in this case 4) and a comparator can be used to check the state of these n-bit registers. However, consider a sequence which has 20 bits, then we will need a 20 bit shift register which happens to be extremely costly in terms of area. The same can be acheived using a state machine with just 5 flip-flops and some additional combinational logic.
 
 ## Register File
+
+
+![register_file](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Register_File/register_file.png)
+
+Figure: Register file with 1 write port and 2 read ports
+
 ## Synchronous FIFO
 
    [![Run on EDA](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_run-on-eda-playground.png)](https://www.edaplayground.com/x/KpjL)
