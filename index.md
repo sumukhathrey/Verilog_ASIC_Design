@@ -217,7 +217,7 @@ However, sometines a latch can be inferred in a verilog code unexpectedly due to
 
 ## Shifter / Rotator
 
-   [Click here to execute](https://github.com/sumukhathrey/Verilog/tree/main/Shifter_Rotator)
+   Additional information can be found at [Design alternatives for barrel shifters](https://www.princeton.edu/~rblee/ELE572Papers/Fall04Readings/Shifter_Schulte.pdf)
     
 ## Sorting network
 	
