@@ -223,7 +223,7 @@ However, sometines a latch can be inferred in a verilog code unexpectedly due to
 	
    Sorting is a very important task generally performed through software, however, in hing sorting demand operations such as artificial intelligence and databases it becomes a necessity to implement sorting through hardware to speedup the process. This is implemented in hardware through a basic building block called ***compare and swap (CAS)*** block. The CAS block is connected in a certain way called bitonic network to sort the given set of numbers.
 
-   ![sorting_networks_cas_blocks](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sorting_Network/cas_block1.png)
+   ![sorting_networks_cas_blocks](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sorting_Network/cas_block.png)
    
    Figure 1: Compare and Swap Block
    
