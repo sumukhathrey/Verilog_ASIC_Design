@@ -1,17 +1,4 @@
 
-
----
-
-> I body him.
-
->> There's gonna come a point where you'll forget about what happened and you're gonna wanna come back at me.
-
->>> Don't get hit
-
->>>> SERIOUSLY, don't get hit.
-
->>>>> These keep nesting at 20. I stopped checking after that point.
-
 # Contents
 
 - [Types of Verilog Modelling](#types-of-verilog-modelling)
