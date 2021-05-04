@@ -389,9 +389,9 @@ Figure: Register file with 1 write port and 2 read ports
 ## Last in first out (LIFO)
 ## Gray counter
 
-[gray_code_table](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Gray_Counter/gray_code_table.png)
+![gray_code_table](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Gray_Counter/gray_code_table.png)
 
-[gray_counter_circuit1](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Gray_Counter/gray_counter.png)
+![gray_counter_circuit1](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Gray_Counter/gray_counter.png)
 
 [Contents](#contents)
 
