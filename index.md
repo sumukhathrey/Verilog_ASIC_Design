@@ -343,6 +343,8 @@ Synthesized divide by 2 circuit is as shown below -
   
   Figure 2: Serial-in-parallel-out circuit with capture register
   
+[![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go-back-to-contents.png)](#contents)
+  
 ## Parallel in serial out (PISO)
 ## MOD-N counter
 ## Sequence Detector (1010)
@@ -365,25 +367,34 @@ Synthesized divide by 2 circuit is as shown below -
    
   
    The sequence can also be detected using a simple n-bit shift register, where "n" represents the length of the sequence to be detected (in this case 4) and a comparator can be used to check the state of these n-bit registers. However, consider a sequence which has 20 bits, then we will need a 20 bit shift register which happens to be extremely costly in terms of area. The same can be acheived using a state machine with just 5 flip-flops and some additional combinational logic.
+   
+[![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go-back-to-contents.png)](#contents)
 
 ## Register File
-
 
 ![register_file](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Register_File/register_file.png)
 
 Figure: Register file with 1 write port and 2 read ports
 
+[![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go-back-to-contents.png)](#contents)
+
 ## Synchronous FIFO
 
-   [![Run on EDA](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_run-on-eda-playground.png)](https://www.edaplayground.com/x/KpjL)
+[![Run on EDA](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_run-on-eda-playground.png)](https://www.edaplayground.com/x/KpjL)
+
+[![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go-back-to-contents.png)](#contents)
 
 ## Synchronous FIFO with odd depth
 
-   [![Run on EDA](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_run-on-eda-playground.png)](https://www.edaplayground.com/x/Jmkw)
+[![Run on EDA](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_run-on-eda-playground.png)](https://www.edaplayground.com/x/Jmkw)
+
+[![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go-back-to-contents.png)](#contents)
    
 ## Asynchronous FIFO
 
-   [![Run on EDA](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_run-on-eda-playground.png)](https://www.edaplayground.com/x/fabv)
+[![Run on EDA](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_run-on-eda-playground.png)](https://www.edaplayground.com/x/fabv)
+      
+[![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go-back-to-contents.png)](#contents)
 
 ## Asynchronous FIFO with odd depth
 ## Last in first out (LIFO)
@@ -399,7 +410,11 @@ Figure: Register file with 1 write port and 2 read ports
 
 ![fibonacci_counter](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Fibonacci/fibonacci_counter.png)
 
+[![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go-back-to-contents.png)](#contents)
+
 ## Round robin arbiter
+
+[![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go-back-to-contents.png)](#contents)
 
 ---
 
