@@ -388,6 +388,13 @@ Figure: Register file with 1 write port and 2 read ports
 ## Asynchronous FIFO with odd depth
 ## Last in first out (LIFO)
 ## Gray counter
+
+[gray_code_table](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Gray_Counter/gray_code_table.png)
+
+[gray_counter_circuit1](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Gray_Counter/gray_counter.png)
+
+[Contents](#contents)
+
 ## Fibonacci counter
 
 ![fibonacci_counter](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Fibonacci/fibonacci_counter.png)
