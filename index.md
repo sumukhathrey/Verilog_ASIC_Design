@@ -389,6 +389,9 @@ Figure: Register file with 1 write port and 2 read ports
 ## Last in first out (LIFO)
 ## Gray counter
 ## Fibonacci counter
+
+![fibonacci_counter](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Fibonacci/fibonacci_counter.png)
+
 ## Round robin arbiter
 
 ---
