@@ -428,6 +428,56 @@ Register file operations include:
 
 ![fifo_sync](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Synchronous_FIFO/fifo_sync.png)
 
+```verilog
+module fifo
+  (input clk, rst, wen, ren,
+   input [7:0] din,
+   output full, empty,
+   output reg [7:0] dout);
+  
+  reg [7:0] mem [0:7];
+  
+  reg [3:0] wptr, rptr;
+  
+  wire wenq, renq;
+  
+  assign full = ((wptr ^ rptr) == 4'b1000);
+  assign empty = (wptr == rptr);
+  
+  assign wenq = ~full & wen;
+  assign renq = ~empty & ren;
+  
+  always @ (posedge clk) begin
+    if (rst) begin
+      wptr <= 4'b0000;
+      rptr <= 4'b0000;
+      for (integer i = 0; i < 8; i = i + 1)
+        mem[i] = 8'h00;
+    end
+    else begin
+      
+      if (wenq) begin
+        wptr <= wptr + 1;
+        mem[wptr] <= din;
+      end
+      else begin
+        wptr <= wptr;
+        mem[wptr] <= mem[wptr[2:0]];
+      end
+      
+      if (renq)
+        rptr <= rptr + 1;
+      else
+        rptr <= rptr;
+      
+    end
+  end
+
+  assign dout = mem[rptr[2:0]];
+  
+endmodule
+```
+
 [![Run on EDA](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_run-on-eda-playground.png)](https://www.edaplayground.com/x/KpjL)
 
 [![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go-back-to-contents.png)](#contents)
