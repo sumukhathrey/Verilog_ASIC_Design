@@ -422,6 +422,43 @@ Register file operations include:
 1. ***Register File Read Operation:*** A ***read address*** value is provided on the ***read address port*** to select the register to be read from. The ***read data*** is available immediately through the mux coming out on the ***read data port***.
 2. ***Register File Write Operation:*** A ***write address*** value is provided on the ***write address port*** to select the register to which data is to be written and ***write data*** value is provided on the ***write data port*** which is the data to be written to.
 
+```verilog
+module RegisterFile ( input clk, srst, reg_write,
+                     input [7:0] w_data,
+                     input [2:0] r_addr1, r_addr2, w_addr,
+                     output [7:0] r_data1, r_data2);
+  
+  // Register memory array - 8 locations of 8 bits each
+  reg [7:0] register [0:7];
+  
+  integer i;
+    
+  always @ (posedge clk) begin
+    if (srst) begin
+      
+      // Initialize all registers to value 0
+      for(i = 0; i < 8; i=i+1) begin
+        register[i] <= 'h0;
+      end
+    end
+    else if (reg_write)
+      
+      // Write to registers only on condition reg_write
+      // On reg_write, write the data to the register address provided on w_addr
+      register[w_addr] <= w_data;
+    end
+  
+  // Read data available on 2 read ports based on 2 seperate read addresses
+  assign r_data1 = register[r_addr1];
+  assign r_data2 = register[r_addr2];
+    
+endmodule
+```
+
+[![Run on EDA](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_run-on-eda-playground.png)](https://www.edaplayground.com/x/hj7Y)
+
+![reg_file_wave](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Register_File/reg_file_wave.png)
+
 [![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go_back.png)](#contents)
 
 ## Synchronous FIFO
