@@ -429,33 +429,44 @@ Register file operations include:
 ![fifo_sync](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Synchronous_FIFO/fifo_sync.png)
 
 ```verilog
-module fifo
-  (input clk, rst, wen, ren,
-   input [7:0] din,
-   output full, empty,
-   output reg [7:0] dout);
+module fifo(input clk, rst, wen, ren,
+            input [7:0] din,
+            output full, empty,
+            output reg [7:0] dout);
   
+  // FIFO memory array - 8 locations of 8 bits each
   reg [7:0] mem [0:7];
   
+  // FIFO write and read pointer registers (n+1) bit wide
   reg [3:0] wptr, rptr;
   
+  // read enable and write enable qualified signals declaration
   wire wenq, renq;
   
+  // Computation of full and empty signals based on the current
+  // read and qrite pointers
   assign full = ((wptr ^ rptr) == 4'b1000);
   assign empty = (wptr == rptr);
   
+  // read enable qualified and write enable qualified are generated
+  // based on the write/read request and full and empty status of FIFO
   assign wenq = ~full & wen;
   assign renq = ~empty & ren;
   
   always @ (posedge clk) begin
+    
     if (rst) begin
+      // Write and read pointers are initialized to 0
       wptr <= 4'b0000;
       rptr <= 4'b0000;
+      
+      // FIFO memory is initialized to 0 (not necessary)
       for (integer i = 0; i < 8; i = i + 1)
         mem[i] = 8'h00;
     end
     else begin
-      
+      // Write pointer is incremented on valid write request
+      // FIFO memory is updated with data for valid write request
       if (wenq) begin
         wptr <= wptr + 1;
         mem[wptr] <= din;
@@ -465,14 +476,15 @@ module fifo
         mem[wptr] <= mem[wptr[2:0]];
       end
       
+      // Read pointer is incremented on valid read request
       if (renq)
         rptr <= rptr + 1;
       else
         rptr <= rptr;
-      
     end
   end
 
+  // Read data port
   assign dout = mem[rptr[2:0]];
   
 endmodule
