@@ -422,11 +422,13 @@ Figure: Register file with 1 write port and 2 read ports
 
 The gray code is a type of binary number ordering such that each number differes from its previous and the following number by exactly 1-bit. Gray codes are used in cases when the binary numbers transmitted by a digital system may result in a fault or ambuiguity or for implementing error corrections.
 
+The most simple implementation of a gray code counter will be a binary counter followed by a ***binary to gray*** converter. However, the datapath is huge resulting in a very low clock frequency. This is a good motive to pursue a design to implement a gray counter with a smaller datapath.
+
 Consider a 4-bit gray code `gray[3:0]` in the following table.
 
 ![gray_code_table](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Gray_Counter/gray_code_table.png)
 
-The ***count*** column gives the decimal value for the corrseponding gray code. ***gray[3:0]*** represent the binary encoded gray code and the ***gray[-1]*** is a place-holder and used to actually implement the gray code counter.
+The ***count*** column gives the decimal value for the corrseponding gray code, ***gray[3:0]*** represent the binary encoded gray code, and ***gray[-1]*** is a place-holder and used to actually implement the gray code counter.
 
 From the table the following observations can be made - 
 1. ***gray[-1]*** flips every clock cycle, and is preset to `1'b1`
@@ -434,6 +436,8 @@ From the table the following observations can be made -
 3. ***gray[1]*** flips everytime `(gray[0] == 1) & (gray[-1] == 0)`
 4. ***gray[2]*** flips everytime `(gray[1] == 1) & (gray[0] == 0) & (gray[-1] == 0)`
 5. ***gray[3]*** flips twice for a cycle which means we need additional condition to account for this. It flips when and `(gray[3] == 1) or (gray[2] == 0)` and `(gray[1] == 0) & (gray[0] == 0) & (gray[-1] == 0)`
+
+The ***red arrow*** in the table shows the bit getting flipped and the highlighed bits show the condition for the flip.
 
 The same has been shown here in the following circuit. ***gray[3:-1]*** is represented by the flip-flops and the logic when these flip make up the combinational logic.
 
