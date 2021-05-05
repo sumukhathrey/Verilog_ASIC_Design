@@ -220,7 +220,7 @@ However, sometines a latch can be inferred in a verilog code unexpectedly due to
    endmodule
    ```
    
-[![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go-back-to-contents.png)](#contents)
+[![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go_back.png)](#contents)
 
 ## Shifter / Rotator
 
