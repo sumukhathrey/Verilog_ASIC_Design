@@ -335,7 +335,23 @@ endmodule
 
 ## Divide by 2
 
-Synthesized divide by 2 circuit is as shown below - 
+Counters are a type of sequential circuits in which the set of d flip-flops hold the count value of the counter which is incremented in every clock in a typical up counder. The most basic a 1-bit counter also doubles up as a divide-by-2 circuit since for any given clock frequency, the output of the 1 bit counter is 1/2 the frequency of the cock signal. 
+
+A synchronous active-high reset divide-by-2 circuit can be written in verilog as:
+
+```verilog
+module clk_div (input clk, srst, 
+		output clk_out);
+    always @ (posedge clk_in) begin
+        if (srst) 
+            clk_out <= 1'b0;
+        else
+            clk_out <= ~clk_out;
+    end
+endmodule  
+```
+
+Synthesized divide-by-2 circuit is as shown below - 
 
 ![div_by_2](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Divide_by_2/div_by_2.png)
 
