@@ -392,18 +392,19 @@ Synthesized divide by 2 circuit is as shown below -
 
 ## Register File
 
-![register_file](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Register_File/register_file.png)
-
-Figure: Register file with 1 write port and 2 read ports
-
 Register File is a type of memory block (typically used in a CPU), a m-set of storage cells to store data n-bit wide. It is used to hold data and fetch data based on the need. To perform this function, the register has the ***write operation*** to enable writing data to the register locations and ***read operation*** to enable reading the register locations. To write and read data the register file has ***write pointer*** and ***read pointer*** inputs which can be in a binary encoded or one-hot coded fashion. The number of writes and reads that can be performed in a clock cycle decide the number of ***write port*** and ***read ports*** needed in a register file.
 
 The most common use of a register file is in a CPU in which we can perform a write to store the computed data and 2 reads to fetch data operands to operate on in a clock cycle. For this reason, we will design a register file with 1 write port and 2 read ports. 
 
 At the transistor level, register file can be an array of flip flops. However, in larger designs this is costlier and it is implemented through SRAM cells. However, with an SRAM cell array there is additional considerations of read and write cycles.
 
-***Register File Read Operation:*** A ***read address*** value is provided on the ***read address port*** to select the register to be read from. The ***read data*** is available immediately through the mux coming out on the ***read data port***.
-***Register File Write Operation:*** A ***write address*** value is provided on the ***write address port*** to select the register to which data is to be written and ***write data*** value is provided on the ***write data port*** which is the data to be written to.
+![register_file](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Register_File/register_file.png)
+
+Figure: Register file with 1 write port and 2 read ports
+
+Register file operations include:
+1. ***Register File Read Operation:*** A ***read address*** value is provided on the ***read address port*** to select the register to be read from. The ***read data*** is available immediately through the mux coming out on the ***read data port***.
+2. ***Register File Write Operation:*** A ***write address*** value is provided on the ***write address port*** to select the register to which data is to be written and ***write data*** value is provided on the ***write data port*** which is the data to be written to.
 
 [![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go-back-to-contents.png)](#contents)
 
