@@ -435,7 +435,46 @@ endmodule
    
    Figure: Sequence Detector 1010 - Mealy non-overlapping and overlapping state machine.  
    
+```verilog
+// Code your design here
+module seq_1010(input din, clk, rst,
+                output reg dout);
   
+  // Parameterized state values for ease
+  parameter S0 = 0, S1 = 1, S2 = 2, S3 = 3, S4 = 4;
+  
+  // RState memory definition
+  reg [2:0] state, next_state;
+  
+  // Next State Logic - combinational logic to compute the next state based on the current state and input value
+  always @ (*) begin
+    case (state)
+      S0: next_state = din ? S1 : S0;
+      S1: next_state = din ? S1 : S2;
+      S2: next_state = din ? S3 : S0;
+      S3: next_state = din ? S1 : S0;// This transition for non-overlaping sequence detector (If uncommented, comment the next line)
+      //S3: next_state = din ? S1 : S2; // This transition for overlaping sequence detector (If uncommented, comment the previous line)
+      default: next_state = S0;
+    endcase
+  end
+  
+  // State Memory - Assign the computed next state to the state memory on the clock edge
+  always @ (posedge clk) begin
+    if (rst) state <= 3'b000;
+    else state <= next_state;
+  end
+  
+  // Output functional logic - The states for which the output should be '1'
+  always @ (posedge clk) begin
+    if (rst) dout <= 1'b0;
+    else begin
+      if (~din & (state == S3)) dout <= 1'b1;
+      else dout <= 1'b0;
+    end
+  end
+endmodule
+```
+
    The sequence can also be detected using a simple n-bit shift register, where "n" represents the length of the sequence to be detected (in this case 4) and a comparator can be used to check the state of these n-bit registers. However, consider a sequence which has 20 bits, then we will need a 20 bit shift register which happens to be extremely costly in terms of area. The same can be acheived using a state machine with just 5 flip-flops and some additional combinational logic.
    
 [![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go_back.png)](#contents)
