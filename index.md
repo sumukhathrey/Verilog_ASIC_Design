@@ -425,6 +425,7 @@ module seq_1010(input din, clk, rst,
 endmodule
 ```
 
+[![Run on EDA](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_run-on-eda-playground.png)](https://www.edaplayground.com/x/iK_p)
 
 ![moore_1010_wave1](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector_1010/moore_1010_non_overlap.png)
 
@@ -478,6 +479,8 @@ module seq_1010(input din, clk, rst,
   end
 endmodule
 ```
+
+[![Run on EDA](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_run-on-eda-playground.png)](https://www.edaplayground.com/x/HbJV)
 
 ![mealy_1010_wave1](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector_1010/mealy_1010_non_overlap.png)
 
