@@ -14,8 +14,8 @@
   | [Sorting network](#sorting-network) | [D flip-flop](#d-flip-flop) |[Divide by 2](#divide-by-2) | 
   | [Serial in parallel out (SIPO)](#serial-in-parallel-out-sipo) | [Parallel in serial out (PISO)](#parallel-in-serial-out-piso) | [Counter](#counters) |
   | [MOD-N counter](#mod-n-counter) | [Sequence Detector (1010)](#sequence-detector-1010) | [Register File](#register-file) | 
-  | [Synchronous FIFO](#synchronous-fifo) | [Synchronous FIFO with odd depth](#synchronous-fifo-with-odd-depth) | [Asynchronous FIFO](#asynchronous-fifo) |
-  | [Asynchronous FIFO with odd depth](#asynchronous-fifo-with-odd-depth) | [Last in first out (LIFO)](#last-in-first-out-lifo) | [Gray counter](#gray-counter) | 
+  | [Synchronous FIFO](#synchronous-fifo) | [Synchronous FIFO (odd depth)](#synchronous-fifo-with-odd-depth) | [Asynchronous FIFO](#asynchronous-fifo) |
+  | [Asynchronous FIFO (odd depth)](#asynchronous-fifo-with-odd-depth) | [Last in first out (LIFO)](#last-in-first-out-lifo) | [Gray counter](#gray-counter) | 
   | [Fibonacci counter](#fibonacci-counter) | [Round robin arbiter](#round-robin-arbiter) | |
 
 
