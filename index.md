@@ -424,6 +424,16 @@ module seq_1010(input din, clk, rst,
   assign dout = state == S4;
 endmodule
 ```
+
+
+![moore_1010_wave1](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector_1010/moore_1010_non_overlap.png)
+
+Figure: Sequence Detector 1010 - Moore non-overlapping waveform. 
+
+
+![moore_1010_wave2](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector_1010/moore_1010_overlap.png)
+
+Figure: Sequence Detector 1010 - Moore overlapping waveform. 
    
    ![mealy_1010](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector_1010/mealy_1010.png)
    
@@ -468,6 +478,15 @@ module seq_1010(input din, clk, rst,
   end
 endmodule
 ```
+
+![mealy_1010_wave1](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector_1010/mealy_1010_non_overlap.png)
+
+Figure: Sequence Detector 1010 - Mealy non-overlapping waveform. 
+
+
+![mealy_1010_wave2](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector_1010/mealy_1010_overlap.png)
+
+Figure: Sequence Detector 1010 - Mealy overlapping waveform. 
 
    The sequence can also be detected using a simple n-bit shift register, where "n" represents the length of the sequence to be detected (in this case 4) and a comparator can be used to check the state of these n-bit registers. However, consider a sequence which has 20 bits, then we will need a 20 bit shift register which happens to be extremely costly in terms of area. The same can be acheived using a state machine with just 5 flip-flops and some additional combinational logic.
    
