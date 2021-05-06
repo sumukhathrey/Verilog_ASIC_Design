@@ -468,9 +468,9 @@ Synthesized divide-by-2 circuit is as shown below -
    Also, the state machine being used to detect the sequence can be mealy or a moore state machine. This will change the total number of states at some cost to the output functional logic
    
    
-   ![moore_1010](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector_1010/moore_1010.png)
+   ![seqD_1010](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector_1010/seqD_1010.png)
    
-   Figure: Sequence Detector 1010 - Moore non-overlapping and overlapping state machine. 
+   Figure: Sequence Detector 1010 - Moore and Mealy; non-overlapping and overlapping state machines. 
    
 ```verilog
 // Code your design here
@@ -517,10 +517,7 @@ Figure: Sequence Detector 1010 - Moore non-overlapping waveform.
 ![moore_1010_wave2](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector_1010/moore_1010_overlap.png)
 
 Figure: Sequence Detector 1010 - Moore overlapping waveform. 
-   
-   ![mealy_1010](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector_1010/mealy_1010.png)
-   
-   Figure: Sequence Detector 1010 - Mealy non-overlapping and overlapping state machine.  
+    
    
 ```verilog
 // Code your design here
