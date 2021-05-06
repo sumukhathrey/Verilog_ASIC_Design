@@ -245,6 +245,26 @@ However, sometines a latch can be inferred in a verilog code unexpectedly due to
    
    To differentiate between the ascending and decending order CAS blocks, we use arrows to depict the type of sort. The arrow-head indicates port with ***max*** output and the arrow-root indicates the port with the ***min*** output.
    
+```verilog
+module comapre_and_swap(input [3:0] data1, data2,
+                        output [3:0] max, min);
+  
+  // Comparator output declaration
+  wire data1_greater_than_data2;
+  
+  // Comparator output = 1 if data1 > data2
+  // Comparator output = 0 if data1 <= data2
+  assign data1_greater_than_data2 = data1 > data2;
+  
+  // max data 
+  assign max = (data1_greater_than_data2 == 1'b1) ? data1 : data2;
+  
+  // min data 
+  assign min = (data1_greater_than_data2 == 1'b1) ? data2 : data1;
+  
+endmodule
+```
+
    ![sorting_networks_components](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sorting_Network/sorting_network_blocks.png)
    
    Figuren 2: Ascending and descending CAS blocks
@@ -267,6 +287,68 @@ However, sometines a latch can be inferred in a verilog code unexpectedly due to
    
    Figure 4: Sorting 8 numbers using CAS blocks in ascending order
    
+```verilog
+module sort_network_8x4 (input [3:0] data_in [0:7],
+                         output [3:0] data_sort [0:7]);
+  
+  // wire declarations for all the sorting intermediaries
+  wire [3:0] stage1 [0:7];
+  
+  wire [3:0] stage2_0 [0:7];
+  wire [3:0] stage2_1 [0:7];
+  
+  wire [3:0] stage3_0 [0:7];
+  wire [3:0] stage3_1 [0:7];
+  wire [3:0] stage3_2 [0:7];
+  
+  
+  //------------------------------------------------------------------------
+  // Stage 0 has only one level of sorting
+  //------------------------------------------------------------------------
+  comapre_and_swap u1 (data_in[0], data_in[1], stage1[1], stage1[0]);
+  comapre_and_swap u2 (data_in[2], data_in[3], stage1[2], stage1[3]);
+  comapre_and_swap u3 (data_in[4], data_in[5], stage1[5], stage1[4]);
+  comapre_and_swap u4 (data_in[6], data_in[7], stage1[6], stage1[7]);
+  
+  //------------------------------------------------------------------------
+  //Stage 1 has 2 levels of sorting
+  //------------------------------------------------------------------------
+  comapre_and_swap u5 (stage1[0], stage1[2], stage2_0[2], stage2_0[0]);
+  comapre_and_swap u6 (stage1[1], stage1[3], stage2_0[3], stage2_0[1]);
+  comapre_and_swap u7 (stage1[4], stage1[6], stage2_0[4], stage2_0[6]);
+  comapre_and_swap u8 (stage1[5], stage1[7], stage2_0[5], stage2_0[7]);
+  
+  comapre_and_swap u9 (stage2_0[0], stage2_0[2], stage2_1[2], stage2_1[0]);
+  comapre_and_swap u10 (stage2_0[1], stage2_0[3], stage2_1[3], stage2_1[1]);
+  comapre_and_swap u11 (stage2_0[4], stage2_0[6], stage2_1[4], stage2_1[6]);
+  comapre_and_swap u12 (stage2_0[5], stage2_0[7], stage2_1[5], stage2_1[7]);
+  
+  //------------------------------------------------------------------------
+  // Stage 2 has 3 levels of sorting
+  //------------------------------------------------------------------------
+  comapre_and_swap u13 (stage2_1[0], stage2_1[4], stage3_0[4], stage3_0[0]);
+  comapre_and_swap u14 (stage2_1[1], stage2_1[5], stage3_0[5], stage3_0[1]);
+  comapre_and_swap u15 (stage2_1[2], stage2_1[6], stage3_0[6], stage3_0[2]);
+  comapre_and_swap u16 (stage2_1[3], stage2_1[7], stage3_0[7], stage3_0[3]);
+  
+  comapre_and_swap u17 (stage3_0[0], stage3_0[2], stage3_1[2], stage3_1[0]);
+  comapre_and_swap u18 (stage3_0[1], stage3_0[3], stage3_1[3], stage3_1[1]);
+  comapre_and_swap u19 (stage3_0[4], stage3_0[6], stage3_1[6], stage3_1[4]);
+  comapre_and_swap u20 (stage3_0[5], stage3_0[7], stage3_1[7], stage3_1[5]);
+  
+  comapre_and_swap u21 (stage3_1[0], stage3_1[1], stage3_2[1], stage3_2[0]);
+  comapre_and_swap u22 (stage3_1[2], stage3_1[3], stage3_2[3], stage3_2[2]);
+  comapre_and_swap u23 (stage3_1[4], stage3_1[5], stage3_2[5], stage3_2[4]);
+  comapre_and_swap u24 (stage3_1[6], stage3_1[7], stage3_2[7], stage3_2[6]);
+  
+  // Sorted data is assigned to output
+  assign data_sort = stage3_2;
+  
+endmodule
+```
+
+[![Run on EDA](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_run-on-eda-playground.png)](https://www.edaplayground.com/x/9JEa)
+
    The information found here was referred from an outstanding paper [Low-Cost Sorting Network Circuits Using Unary Processing](https://ieeexplore.ieee.org/document/8338366)
    
    Additional information about sorting networks can be found [here](http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/chap28.htm) and [here](http://www.cs.kent.edu/~batcher/sort.pdf)
