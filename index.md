@@ -744,6 +744,51 @@ The same has been shown here in the following circuit. ***gray[3:-1]*** is repre
 
 ![gray_counter_circuit1](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Gray_Counter/gray_counter.png)
 
+```verilog
+module gray_counter(input clk, rst,
+                    output [3:0] gray_count);
+  
+  // D flip flops to store the gray count and the placeholder value
+  reg [3:-1] q;
+  
+  // register declaration for combinational logic
+  reg all_zeros_below[2:-1];
+  
+  // Combinational logic to compute if the value below any bit of the gray count is 0
+  always @ (*) begin
+    all_zeros_below[-1] = 1;
+    for (integer i = 0; i<3; i= i+1) begin
+      all_zeros_below[i] = all_zeros_below[i-1] & ~q[i-1];
+    end
+  end
+  
+  always @ (posedge clk) begin
+    if (rst) q[3:-1] <= 5'b0000_1;
+    
+    else begin
+      // The placegolder value toggles every clock
+      q[-1] <= ~q[-1];
+      
+      // The bits [n-1:0] toggle everytime the sequence below it is 1 followed by all zeros (1000...)
+      for (integer i = 0; i<3; i= i+1) begin
+        q[i] <= (q[i-1] & all_zeros_below[i-1]) ? ~q[i] : q[i];
+      end
+      
+      // The MSB flips when either the nth/(n-1)th bit is 1 followed by all zeros (X1000... or 1X000...)
+      q[3] <= ((q[3] | q[2]) & all_zeros_below[2]) ? ~q[3] : q[3];
+    end
+  end
+  
+  // The flip flop value is connected to the gray counter output.
+  assign gray_count = q[3:0];
+  
+endmodule
+```
+
+[![Run on EDA](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_run-on-eda-playground.png)](https://www.edaplayground.com/x/Q6Zk)
+
+![gray_counter_wave](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Gray_Counter/gray_counter_wave.png)
+
 [![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go_back.png)](#contents)
 
 ## Fibonacci counter
