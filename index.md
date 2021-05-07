@@ -9,7 +9,7 @@
 
 - [Basic hardware components](#basic-hardware-components)
 
-  |  Circuits |
+  |  | | |
   | --------------- | --------------- | --------------- |
   | [Half adder](#half-adder) | [Full adder](#full-adder) | [Shifter and Rotator](#shifter-and-rotator) |
   | [Sorting network](#sorting-network) | [D flip-flop](#d-flip-flop) |[Divide by 2](#divide-by-2) | 
