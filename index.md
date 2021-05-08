@@ -11,9 +11,9 @@
 	| [Half adder](#half-adder) | [Full adder](#full-adder) | [Shifter and Rotator](#shifter-and-rotator) | 
 	| [Sorting network](#sorting-network) | [D flip-flop](#d-flip-flop) | [Divide by 2](#divide-by-2) |
 	| [Serial in parallel out (SIPO)](#serial-in-parallel-out-sipo) | [Parallel in serial out (PISO)](#parallel-in-serial-out-piso) | [Counter](#counters) | 
-	| [MOD-N counter](#mod-n-counter) | [Sequence Detector (1010)](#sequence-detector-1010) | [Register File](#register-file) |
-	| [FIFO](#fifo) | [Last in first out (LIFO)](#last-in-first-out-lifo) | [Gray counter](#gray-counter) | [Fibonacci counter](#fibonacci-counter) |
-	| [Round robin arbiter](#round-robin-arbiter) | | |
+	| [MOD-N counter](#mod-n-counter) | [Sequence Detector](#sequence-detector) | [Register File](#register-file) |
+	| [FIFO](#fifo) | [Last in first out (LIFO)](#last-in-first-out-lifo) | [Gray counter](#gray-counter) | 
+	| [Fibonacci counter](#fibonacci-counter) | [Round robin arbiter](#round-robin-arbiter) | |
 - Pipelined CPU
 - Multicycle CPU
 - Tomasulo CPU
@@ -451,7 +451,7 @@ Synthesized divide-by-2 circuit is as shown below -
 
 [![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go_back.png)](#contents)
 
-## Sequence Detector (1010)
+## Sequence Detector
 
   A simple sequence detector can be modelled in several ways -
     1. Non-overlapping - Here, consider a sequence detector for sequence 1010. For the input sequence `10101010` the output will be `00010001`, i.e. the sequence is detected in a non-overlapping fashion. Once a sequence is detected, the sequence needs to be repeated completely from the start to be dected again.
@@ -459,7 +459,8 @@ Synthesized divide-by-2 circuit is as shown below -
 
    Also, the state machine being used to detect the sequence can be mealy or a moore state machine. This will change the total number of states at some cost to the output functional logic
    
-   
+### Sequence Detector - 1010
+
    ![seqD_1010](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector_1010/seqD_1010.png)
    
    Figure: Sequence Detector 1010 - Moore and Mealy; non-overlapping and overlapping state machines. 
