@@ -12,7 +12,7 @@
 	| [Sorting network](#sorting-network) | [D flip-flop](#d-flip-flop) | [Divide by 2](#divide-by-2) |
 	| [Serial in parallel out (SIPO)](#serial-in-parallel-out-sipo) | [Parallel in serial out (PISO)](#parallel-in-serial-out-piso) | [Counter](#counters) | 
 	| [MOD-N counter](#mod-n-counter) | [Sequence Detector](#sequence-detector) | [Register File](#register-file) |
-	| [FIFO](#fifo) | [Last in first out (LIFO)](#last-in-first-out-lifo) | [Gray counter](#gray-counter) | 
+	| [First-in-first-out (FIFO)](#first-in-first-out-fifo) | [Last-in-first-out (LIFO)](#last-in-first-out-lifo) | [Gray counter](#gray-counter) | 
 	| [Fibonacci counter](#fibonacci-counter) | [Round robin arbiter](#round-robin-arbiter) | |
 - Pipelined CPU
 - Multicycle CPU
@@ -622,7 +622,7 @@ endmodule
 
 [![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go_back.png)](#contents)
 
-## FIFO
+## First-in-first-out (FIFO)
 
 In this day, almost every digital component works on a clock and it is very common that the sub-systems exchange data for computational and operational needs. An intermediary becomes necessary if:
 - The data produced and the data consumer operate on different clock frequencies
