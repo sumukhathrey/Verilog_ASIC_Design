@@ -635,11 +635,15 @@ In this day, almost every digital component works on a clock and it is very comm
 - There is a skew between the data production burst and data reception burst
 	- If the producer and consumer operate at the same clock but have a large skew between when a burst of data is produced and when the burst of data is consumed. In such scenario, the produced data needs to be buffered and the sequence of transfer needs to be preserved, then a synchronous FIFO can be used. The depth of such FIFO is decided by the maximum burst length
 
-- ***Synchronous FIFO*** - The type of FIFOs which have common write and read clock are called synchronous FIFO. Synchronous FIFOs are very common in a processor/controller ICs which work on a common system clock. Since all the sub-systems work on the same system clock they can make use of sync-FIFOs with a possible need for skew handling. 
-- ***Asynchronous FIFO*** - The type of FIFOs which have different write and read clock are called asynchronous FIFO. Such FIFO block is typically used when data needs to be transferred across clock-domain-crossing (CDC), where both the producer and the consumer work in different clock domain.
+
+Additional information can be found at [FIFO Architecture, Functions, and Applications](https://www.ti.com/lit/an/scaa042a/scaa042a.pdf)
+
+Additional info on deciding the fifo depth can be found at [CALCULATION OF FIFO DEPTH - MADE EASY](https://hardwaregeeksblog.files.wordpress.com/2016/12/fifodepthcalculationmadeeasy2.pdf)
 
 
 ### Synchronous FIFO
+
+***Synchronous FIFO*** - The type of FIFOs which have common write and read clock are called synchronous FIFO. Synchronous FIFOs are very common in a processor/controller ICs which work on a common system clock. Since all the sub-systems work on the same system clock they can make use of sync-FIFOs with a possible need for skew handling.
 
 ![fifo_sync](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Synchronous_FIFO/fifo_sync.png)
 
@@ -709,26 +713,24 @@ endmodule
 
 ![fifo_sync_wave](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Synchronous_FIFO/fifo_sync_wave.png)
 
-Additional information can be found at [FIFO Architecture, Functions, and Applications](https://www.ti.com/lit/an/scaa042a/scaa042a.pdf)
-
 [![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go_back.png)](#contents)
 
-## Synchronous FIFO with odd depth
+### Synchronous FIFO with odd depth
 
 [![Run on EDA](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_run-on-eda-playground.png)](https://www.edaplayground.com/x/Jmkw)
 
 [![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go_back.png)](#contents)
    
-## Asynchronous FIFO
+### Asynchronous FIFO
+
+***Asynchronous FIFO*** - The type of FIFOs which have different write and read clock are called asynchronous FIFO. Such FIFO block is typically used when data needs to be transferred across clock-domain-crossing (CDC), where both the producer and the consumer work in different clock domain.
 
 [![Run on EDA](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_run-on-eda-playground.png)](https://www.edaplayground.com/x/fabv)
-
-Additional info on deciding the fifo depth can be found at [CALCULATION OF FIFO DEPTH - MADE EASY](https://hardwaregeeksblog.files.wordpress.com/2016/12/fifodepthcalculationmadeeasy2.pdf)
       
 [![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go_back.png)](#contents)
 
-## Asynchronous FIFO with odd depth
 ## Last in first out (LIFO)
+
 ## Gray counter
 
 The gray code is a type of binary number ordering such that each number differes from its previous and the following number by exactly 1-bit. Gray codes are used in cases when the binary numbers transmitted by a digital system may result in a fault or ambuiguity or for implementing error corrections.
