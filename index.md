@@ -624,7 +624,22 @@ endmodule
 
 [![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go_back.png)](#contents)
 
-## Synchronous FIFO
+## FIFO
+
+In this day, almost every digital component works on a clock and it is very common that the sub-systems exchange data for computational and operational needs. An intermediary becomes necessary if:
+- The data produced and the data consumer operate on different clock frequencies
+	- If the data is being produced at a slower speed than the data is being consumed ***(f_write_clk < f_read_clk)*** the data transfer can take place through a single data register followed by asynchronous data synchronization methods (handshake or 2-clock synchronization)
+	- If the data is being produced at a higher speed than the data is being consumed ***(f_write_clk > f_read_clk)*** the data transfer needs buffering which can be implemented through an asynchronous FIFO. The depth of the FIFO depends the write and read clock and the maximum data burst length.
+- The data producer and the data consumer have a skew between their clocks
+	- If the data is being produced at the same speed as the data is being consumed ***(f_write_clk = f_read_clk)*** and there is a skew between the producer and the consumer clock, the data can be transferred through a lock-up latch/register to overcome the skew
+- There is a skew between the data production burst and data reception burst
+	- If the producer and consumer operate at the same clock but have a large skew between when a burst of data is produced and when the burst of data is consumed. In such scenario, the produced data needs to be buffered and the sequence of transfer needs to be preserved, then a synchronous FIFO can be used. The depth of such FIFO is decided by the maximum burst length
+
+- ***Synchronous FIFO*** - The type of FIFOs which have common write and read clock are called synchronous FIFO. Synchronous FIFOs are very common in a processor/controller ICs which work on a common system clock. Since all the sub-systems work on the same system clock they can make use of sync-FIFOs with a possible need for skew handling. 
+- ***Asynchronous FIFO*** - The type of FIFOs which have different write and read clock are called asynchronous FIFO. Such FIFO block is typically used when data needs to be transferred across clock-domain-crossing (CDC), where both the producer and the consumer work in different clock domain.
+
+
+### Synchronous FIFO
 
 ![fifo_sync](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Synchronous_FIFO/fifo_sync.png)
 
