@@ -2,8 +2,11 @@
 # Contents
 
 - [Types of Verilog Modelling](#types-of-verilog-modelling)
+
 - [Verilog Coding Style](#verilog-coding-style)
+
 - [Latches in Verilog](#latches-in-verilog)
+
 - [Basic hardware components](#basic-hardware-components)
 
 	|         |         |         |
@@ -14,8 +17,11 @@
 	| [MOD-N counter](#mod-n-counter) | [Sequence Detector](#sequence-detector) | [Register File](#register-file) |
 	| [First-in-first-out (FIFO)](#first-in-first-out-fifo) | [Last-in-first-out (LIFO)](#last-in-first-out-lifo) | [Gray counter](#gray-counter) | 
 	| [Fibonacci counter](#fibonacci-counter) | [Round robin arbiter](#round-robin-arbiter) | |
+
 - Pipelined CPU
+
 - Multicycle CPU
+
 - Tomasulo CPU
  
 ---
