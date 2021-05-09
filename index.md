@@ -12,7 +12,7 @@
 	| [Half adder](#half-adder) | [Full adder](#full-adder) | [Shifter and Rotator](#shifter-and-rotator) |
 	| ------- | ------- | ------- |
 	| [Multiplier](#multiplier) | [Divider](#divider) | [Sorting network](#sorting-network) | 
-	| [D flip-flop](#d-flip-flop) | [Divide by 2](#divide-by-2) | [Linear feedback shift register (LFSR)](#linear-feedback-shift-register-LFSR) |
+	| [D flip-flop](#d-flip-flop) | [Frequency Dividers](#frequency-dividers) | [Linear feedback shift register (LFSR)](#linear-feedback-shift-register-LFSR) |
 	| [Serial in parallel out (SIPO)](#serial-in-parallel-out-sipo) | [Parallel in serial out (PISO)](#parallel-in-serial-out-piso) | [Counter](#counters) |
 	| [MOD-N counter](#mod-n-counter) | [Sequence Detector](#sequence-detector) | [Register File](#register-file) |
 	| [First-in-first-out (FIFO)](#first-in-first-out-fifo) | [Last-in-first-out (LIFO)](#last-in-first-out-lifo) | [Gray counter](#gray-counter) | 
@@ -409,9 +409,13 @@ endmodule
 
 [![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go_back.png)](#contents)
 
-## Divide by 2
+## Frequency Dividers
 
-Counters are a type of sequential circuits in which the set of d flip-flops hold the count value of the counter which is incremented in every clock in a typical up counder. The most basic a 1-bit counter also doubles up as a divide-by-2 circuit since for any given clock frequency, the output of the 1 bit counter is 1/2 the frequency of the cock signal. 
+The frequency dividers can be implemented through the means of counters.
+
+### Divide by 2
+
+The most basic a 1-bit counter also doubles up as a divide-by-2 circuit since for any given clock frequency, the output of the 1 bit counter is 1/2 the frequency of the cock signal. 
 
 A synchronous active-high reset divide-by-2 circuit can be written in verilog as:
 
@@ -430,6 +434,18 @@ endmodule
 Synthesized divide-by-2 circuit is as shown below - 
 
 ![div_by_2](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Divide_by_2/div_by_2.png)
+
+### Divide by 3
+
+### Divide by 4
+
+### Divide by 5
+
+### Divide by 6
+
+### Divide by 9
+
+### Divide by 11
 
 [![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go_back.png)](#contents)
 
