@@ -235,6 +235,10 @@ However, sometines a latch can be inferred in a verilog code unexpectedly due to
    Additional information can be found at [Design alternatives for barrel shifters](https://www.princeton.edu/~rblee/ELE572Papers/Fall04Readings/Shifter_Schulte.pdf)
    
 [![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go_back.png)](#contents)
+
+## Multiplier
+
+## Divider
     
 ## Sorting network
 	
@@ -412,46 +416,6 @@ endmodule
 
 [![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go_back.png)](#contents)
 
-## Frequency Dividers
-
-The frequency dividers can be implemented through the means of counters.
-
-### Divide by 2
-
-The most basic a 1-bit counter also doubles up as a divide-by-2 circuit since for any given clock frequency, the output of the 1 bit counter is 1/2 the frequency of the cock signal. 
-
-A synchronous active-high reset divide-by-2 circuit can be written in verilog as:
-
-```verilog
-module clk_div (input clk, srst, 
-		output clk_out);
-    always @ (posedge clk_in) begin
-        if (srst) 
-            clk_out <= 1'b0;
-        else
-            clk_out <= ~clk_out;
-    end
-endmodule  
-```
-
-Synthesized divide-by-2 circuit is as shown below - 
-
-![div_by_2](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Divide_by_2/div_by_2.png)
-
-### Divide by 3
-
-### Divide by 4
-
-### Divide by 5
-
-### Divide by 6
-
-### Divide by 9
-
-### Divide by 11
-
-[![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go_back.png)](#contents)
-
 ## Serial in parallel out (SIPO)
 
   Typically in a Serial in Parallel out circuit, there are as many flops as the size of the parallel out. The input data is shifted in with clk and when all the data bits are available, the serially loaded data is read through the parallel port.
@@ -548,12 +512,153 @@ endmodule
 
 [![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go_back.png)](#contents)
 
-## MOD-N counter
+## Counters
+
+### Synchronous counter
+
+### Asynchronous/Ripple counter
+
+### Ring counter
+
+### Johnson counter
+
+## MOD-N Counters
 
 ### MOD-3 counter
 
+### MOD-5 counter
+
+### MOD-6 counter
+
+### MOD-7 counter
+
+### MOD-8 counter
+
+### MOD-9 counter
+
+### MOD-11 counter
+
+### MOD-12 counter
+
+## Gray counter
+
+The gray code is a type of binary number ordering such that each number differes from its previous and the following number by exactly 1-bit. Gray codes are used in cases when the binary numbers transmitted by a digital system may result in a fault or ambuiguity or for implementing error corrections.
+
+The most simple implementation of a gray code counter will be a binary counter followed by a ***binary to gray*** converter. However, the datapath is huge resulting in a very low clock frequency. This is a good motive to pursue a design to implement a gray counter with a smaller datapath.
+
+Consider a 4-bit gray code `gray[3:0]` in the following table.
+
+![gray_code_table](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Gray_Counter/gray_code_table.png)
+
+The ***count*** column gives the decimal value for the corrseponding gray code, ***gray[3:0]*** represent the binary encoded gray code, and ***gray[-1]*** is a place-holder and used to actually implement the gray code counter.
+
+From the table the following observations can be made - 
+1. ***gray[-1]*** flips every clock cycle, and is preset to `1'b1`
+2. ***gray[0]*** flips everytime `gray[-1] == 1`
+3. ***gray[1]*** flips everytime `(gray[0] == 1) & (gray[-1] == 0)`
+4. ***gray[2]*** flips everytime `(gray[1] == 1) & (gray[0] == 0) & (gray[-1] == 0)`
+5. ***gray[3]*** flips twice for a cycle which means we need additional condition to account for this. It flips when and `(gray[3] == 1) or (gray[2] == 0)` and `(gray[1] == 0) & (gray[0] == 0) & (gray[-1] == 0)`
+
+The ***red arrow*** in the table shows the bit getting flipped and the highlighed bits show the condition for the flip.
+
+The same has been shown here in the following circuit. ***gray[3:-1]*** is represented by the flip-flops and the logic when these flip make up the combinational logic.
+
+![gray_counter_circuit1](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Gray_Counter/gray_counter.png)
+
+```verilog
+module gray_counter(input clk, rst,
+                    output [3:0] gray_count);
+  
+  // D flip flops to store the gray count and the placeholder value
+  reg [3:-1] q;
+  
+  // register declaration for combinational logic
+  reg all_zeros_below[2:-1];
+  
+  // Combinational logic to compute if the value below any bit of the gray count is 0
+  always @ (*) begin
+    all_zeros_below[-1] = 1;
+    for (integer i = 0; i<3; i= i+1) begin
+      all_zeros_below[i] = all_zeros_below[i-1] & ~q[i-1];
+    end
+  end
+  
+  always @ (posedge clk) begin
+    if (rst) q[3:-1] <= 5'b0000_1;
+    
+    else begin
+      // The placegolder value toggles every clock
+      q[-1] <= ~q[-1];
+      
+      // The bits [n-1:0] toggle everytime the sequence below it is 1 followed by all zeros (1000...)
+      for (integer i = 0; i<3; i= i+1) begin
+        q[i] <= (q[i-1] & all_zeros_below[i-1]) ? ~q[i] : q[i];
+      end
+      
+      // The MSB flips when either the nth/(n-1)th bit is 1 followed by all zeros (X1000... or 1X000...)
+      q[3] <= ((q[3] | q[2]) & all_zeros_below[2]) ? ~q[3] : q[3];
+    end
+  end
+  
+  // The flip flop value is connected to the gray counter output.
+  assign gray_count = q[3:0];
+  
+endmodule
+```
+
+[![Run on EDA](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_run-on-eda-playground.png)](https://www.edaplayground.com/x/Q6Zk)
+
+![gray_counter_wave](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Gray_Counter/gray_counter_wave.png)
 
 [![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go_back.png)](#contents)
+
+## Fibonacci counter
+
+![fibonacci_counter](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Fibonacci/fibonacci_counter.png)
+
+[![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go_back.png)](#contents)
+
+## Frequency Dividers
+
+The frequency dividers can be implemented through the means of counters.
+
+### Divide by 2
+
+The most basic a 1-bit counter also doubles up as a divide-by-2 circuit since for any given clock frequency, the output of the 1 bit counter is 1/2 the frequency of the cock signal. 
+
+A synchronous active-high reset divide-by-2 circuit can be written in verilog as:
+
+```verilog
+module clk_div (input clk, srst, 
+		output clk_out);
+    always @ (posedge clk_in) begin
+        if (srst) 
+            clk_out <= 1'b0;
+        else
+            clk_out <= ~clk_out;
+    end
+endmodule  
+```
+
+Synthesized divide-by-2 circuit is as shown below - 
+
+![div_by_2](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Divide_by_2/div_by_2.png)
+
+### Divide by 3
+
+### Divide by 4
+
+### Divide by 5
+
+### Divide by 6
+
+### Divide by 9
+
+### Divide by 11
+
+[![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go_back.png)](#contents)
+
+## Linear Feedback Shift Register (LFSR)
 
 ## Sequence Detector
 
@@ -668,7 +773,8 @@ Figure: Sequence Detector 1010 - Mealy overlapping waveform.
 
    The sequence can also be detected using a simple n-bit shift register, where "n" represents the length of the sequence to be detected (in this case 4) and a comparator can be used to check the state of these n-bit registers. However, consider a sequence which has 20 bits, then we will need a 20 bit shift register which happens to be extremely costly in terms of area. The same can be acheived using a state machine with just 5 flip-flops and some additional combinational logic.
    
-   
+### Sequence Detector - 1001
+
 ![seqD_1001](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector_1010/seqD_1001.png)
    
 [![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go_back.png)](#contents)
@@ -834,84 +940,6 @@ endmodule
 [![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go_back.png)](#contents)
 
 ## Last in first out (LIFO)
-
-## Gray counter
-
-The gray code is a type of binary number ordering such that each number differes from its previous and the following number by exactly 1-bit. Gray codes are used in cases when the binary numbers transmitted by a digital system may result in a fault or ambuiguity or for implementing error corrections.
-
-The most simple implementation of a gray code counter will be a binary counter followed by a ***binary to gray*** converter. However, the datapath is huge resulting in a very low clock frequency. This is a good motive to pursue a design to implement a gray counter with a smaller datapath.
-
-Consider a 4-bit gray code `gray[3:0]` in the following table.
-
-![gray_code_table](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Gray_Counter/gray_code_table.png)
-
-The ***count*** column gives the decimal value for the corrseponding gray code, ***gray[3:0]*** represent the binary encoded gray code, and ***gray[-1]*** is a place-holder and used to actually implement the gray code counter.
-
-From the table the following observations can be made - 
-1. ***gray[-1]*** flips every clock cycle, and is preset to `1'b1`
-2. ***gray[0]*** flips everytime `gray[-1] == 1`
-3. ***gray[1]*** flips everytime `(gray[0] == 1) & (gray[-1] == 0)`
-4. ***gray[2]*** flips everytime `(gray[1] == 1) & (gray[0] == 0) & (gray[-1] == 0)`
-5. ***gray[3]*** flips twice for a cycle which means we need additional condition to account for this. It flips when and `(gray[3] == 1) or (gray[2] == 0)` and `(gray[1] == 0) & (gray[0] == 0) & (gray[-1] == 0)`
-
-The ***red arrow*** in the table shows the bit getting flipped and the highlighed bits show the condition for the flip.
-
-The same has been shown here in the following circuit. ***gray[3:-1]*** is represented by the flip-flops and the logic when these flip make up the combinational logic.
-
-![gray_counter_circuit1](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Gray_Counter/gray_counter.png)
-
-```verilog
-module gray_counter(input clk, rst,
-                    output [3:0] gray_count);
-  
-  // D flip flops to store the gray count and the placeholder value
-  reg [3:-1] q;
-  
-  // register declaration for combinational logic
-  reg all_zeros_below[2:-1];
-  
-  // Combinational logic to compute if the value below any bit of the gray count is 0
-  always @ (*) begin
-    all_zeros_below[-1] = 1;
-    for (integer i = 0; i<3; i= i+1) begin
-      all_zeros_below[i] = all_zeros_below[i-1] & ~q[i-1];
-    end
-  end
-  
-  always @ (posedge clk) begin
-    if (rst) q[3:-1] <= 5'b0000_1;
-    
-    else begin
-      // The placegolder value toggles every clock
-      q[-1] <= ~q[-1];
-      
-      // The bits [n-1:0] toggle everytime the sequence below it is 1 followed by all zeros (1000...)
-      for (integer i = 0; i<3; i= i+1) begin
-        q[i] <= (q[i-1] & all_zeros_below[i-1]) ? ~q[i] : q[i];
-      end
-      
-      // The MSB flips when either the nth/(n-1)th bit is 1 followed by all zeros (X1000... or 1X000...)
-      q[3] <= ((q[3] | q[2]) & all_zeros_below[2]) ? ~q[3] : q[3];
-    end
-  end
-  
-  // The flip flop value is connected to the gray counter output.
-  assign gray_count = q[3:0];
-  
-endmodule
-```
-
-[![Run on EDA](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_run-on-eda-playground.png)](https://www.edaplayground.com/x/Q6Zk)
-
-![gray_counter_wave](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Gray_Counter/gray_counter_wave.png)
-
-[![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go_back.png)](#contents)
-
-## Fibonacci counter
-
-![fibonacci_counter](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Fibonacci/fibonacci_counter.png)
-
-[![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go_back.png)](#contents)
 
 ## Round robin arbiter
 
