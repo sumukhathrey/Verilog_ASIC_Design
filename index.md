@@ -8,6 +8,7 @@
 - [Latches in Verilog](#latches-in-verilog)
 
 - [Basic hardware components](#basic-hardware-components)
+
 	| [Half adder](#half-adder) | [Full adder](#full-adder) | [Shifter and Rotator](#shifter-and-rotator) |
 	| ------- | ------- | ------- |
 	| [Multiplier](#multiplier) | [Divider](#divider) | [Sorting network](#sorting-network) | 
