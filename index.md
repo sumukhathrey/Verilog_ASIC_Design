@@ -461,6 +461,14 @@ Synthesized divide-by-2 circuit is as shown below -
 
 ## MOD-N counter
 
+### MOD-3 counter
+
+| q[1] | q[0] | qn[1] | qn[0] |
+| ---- | ---- | ---- | ---- |
+| 0 | 0 | 0 | 1 |
+| 0 | 1 | 1 | 0 |
+| 1 | 0 | 0 | 0 |
+
 [![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go_back.png)](#contents)
 
 ## Sequence Detector
