@@ -522,6 +522,8 @@ endmodule
 
 ### Johnson counter
 
+### Sequence counter
+
 ## MOD-N Counters
 
 ### MOD-3 counter
