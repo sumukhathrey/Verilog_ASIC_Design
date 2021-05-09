@@ -462,11 +462,53 @@ Synthesized divide-by-2 circuit is as shown below -
   
   Figure 1: Basic serial-in-parallel-out circuit
   
+```verilog
+module sipo_1 (input load, clk, rst,
+               input data_in,
+               output [7:0] data_out);
+  
+  reg [7:0] data_reg;
+  
+  always @ (posedge clk or negedge rst) begin
+    if (~rst)
+      data_reg <= 8'h00;
+    else if (load)
+      data_reg <= {data_in, data_reg[7:1]};
+  end
+  
+  assign data_out = data_reg;
+  
+endmodule
+```
+  
   If there is a need to keep the output data stable until we have the next valid data, we need to use a 2-step architecture as shown below. The data is clocked in to the serial registers at the serial_clk then when valid data is loaded, the serial_clk and parallel_clk are asserted together. This way the data loaded into the output registers stay constant until the next valid data is loaded serially.
   
   ![sipo_capture_reg](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/SIPO/sipo_capture_reg.png)
   
   Figure 2: Serial-in-parallel-out circuit with capture register
+  
+```verilog
+module sipo_2 (input load, clk, rst,
+               input data_in,
+               output reg [7:0] data_out);
+  
+  reg [7:0] data_reg;
+  
+  always @ (posedge clk or negedge rst) begin
+    if (~rst) begin
+      data_reg <= 8'h00;
+      data_out <= 8'h00;
+    end
+    else begin
+      if (load)
+        data_reg <= {data_in, data_reg[7:1]};
+      else
+        data_out <= data_reg;
+    end
+  end
+  
+endmodule
+```
   
 [![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go_back.png)](#contents)
   
@@ -476,17 +518,33 @@ Synthesized divide-by-2 circuit is as shown below -
 
 ![piso_basic](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/PISO/piso.png)
 
+```verilog
+module piso (input load, clk, rst,
+             input [7:0] data_in,
+             output reg data_out);
+  
+  reg [7:0] data_reg;
+  
+  always @ (posedge clk or negedge rst) begin
+    if (~rst)
+      data_reg <= 8'h00;
+    else begin
+      if (load)
+      	{data_reg, data_out} <= {data_in, 1'b0};
+      else
+      	{data_reg, data_out} <= {1'b0, data_reg[7:0]};
+    end
+  end
+  
+endmodule
+```
+
 [![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go_back.png)](#contents)
 
 ## MOD-N counter
 
 ### MOD-3 counter
 
-| q[1] | q[0] | qn[1] | qn[0] |
-| ---- | ---- | ---- | ---- |
-| 0 | 0 | 0 | 1 |
-| 0 | 1 | 1 | 0 |
-| 1 | 0 | 0 | 0 |
 
 [![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go_back.png)](#contents)
 
