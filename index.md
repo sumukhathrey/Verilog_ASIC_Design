@@ -9,9 +9,9 @@
 
 - [Basic hardware components](#basic-hardware-components)
 
-	| [Half adder](#half-adder) | [Full adder](#full-adder) | [Shifter and Rotator](#shifter-and-rotator) |
+	| [Adders](#adders) | [Shifter and Rotator](#shifter-and-rotator) | [Multiplier](#multiplier) |
 	| ------- | ------- | ------- |
-	| [Multiplier](#multiplier) | [Divider](#divider) | [Sorting network](#sorting-network) | 
+	 [Divider](#divider) | [Sorting network](#sorting-network) | 
 	| [D flip-flop](#d-flip-flop) | [Serial in parallel out (SIPO)](#serial-in-parallel-out-sipo) | [Parallel in serial out (PISO)](#parallel-in-serial-out-piso) |
 	| [Counters](#counters) | [MOD-N counters](#mod-n-counters) | [Gray counter](#gray-counter) |
 	| [Fibonacci counter](#fibonacci-counter) | [Frequency Dividers](#frequency-dividers) | [Linear feedback shift register (LFSR)](#linear-feedback-shift-register-LFSR) |
@@ -158,7 +158,10 @@ However, sometines a latch can be inferred in a verilog code unexpectedly due to
 
 # Basic hardware components
 
-## Half adder
+## Adders
+
+### Half adder
+
    The half adder circuit is realized as shown in Figure 1. The block has two inputs ***a*** & ***b***, and two outputs ***sum*** and ***cout***
    
    ![half_adder](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/half_adder.png)
@@ -181,7 +184,7 @@ However, sometines a latch can be inferred in a verilog code unexpectedly due to
    ```
    
 
-## Full adder
+### Full adder
 
    The half adder circuit is realized as shown in Figure 1. The block has two inputs ***a***, ***b*** & ***cin***, and two outputs ***sum*** and ***cout***
    
