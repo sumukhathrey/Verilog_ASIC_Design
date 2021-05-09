@@ -467,15 +467,17 @@ module sipo_1 (input load, clk, rst,
                input data_in,
                output [7:0] data_out);
   
+  // SIPO register array to read and shift data
   reg [7:0] data_reg;
   
   always @ (posedge clk or negedge rst) begin
     if (~rst)
-      data_reg <= 8'h00;
+      data_reg <= 8'h00; // Reset SIPO register on reset
     else if (load)
-      data_reg <= {data_in, data_reg[7:1]};
+      data_reg <= {data_in, data_reg[7:1]}; // Load data to the SIPO register by right shifts
   end
   
+  // Assign the SIPO register data to data_out wires
   assign data_out = data_reg;
   
 endmodule
@@ -492,18 +494,19 @@ module sipo_2 (input load, clk, rst,
                input data_in,
                output reg [7:0] data_out);
   
+  // SIPO register array to read and shift data
   reg [7:0] data_reg;
   
   always @ (posedge clk or negedge rst) begin
     if (~rst) begin
-      data_reg <= 8'h00;
-      data_out <= 8'h00;
+      data_reg <= 8'h00; // Reset SIPO register on reset
+      data_out <= 8'h00; // Reset capture register
     end
     else begin
       if (load)
-        data_reg <= {data_in, data_reg[7:1]};
+        data_reg <= {data_in, data_reg[7:1]}; // Load data to the SIPO register by right shifts
       else
-        data_out <= data_reg;
+        data_out <= data_reg; // Assign SIPO register data to capture register
     end
   end
   
@@ -523,14 +526,18 @@ module piso (input load, clk, rst,
              input [7:0] data_in,
              output reg data_out);
   
+  // PISO register array to load and shift data
   reg [7:0] data_reg;
   
   always @ (posedge clk or negedge rst) begin
     if (~rst)
-      data_reg <= 8'h00;
+      data_reg <= 8'h00; // Reset PISO register array on reset
     else begin
+      
+      // Load the data to the PISO register array and reset the serial data out register
       if (load)
       	{data_reg, data_out} <= {data_in, 1'b0};
+      // Shift the loaded data 1 bit right; into the serial data out register
       else
       	{data_reg, data_out} <= {1'b0, data_reg[7:0]};
     end
