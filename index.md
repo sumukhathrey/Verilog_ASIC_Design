@@ -453,9 +453,9 @@ Synthesized divide-by-2 circuit is as shown below -
   
 ## Parallel in serial out (PISO)
 
-![piso_block](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/SIPO/piso_block.png)
+![piso_block](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/PISO/piso_block.png)
 
-![piso_basic](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/SIPO/piso.png)
+![piso_basic](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/PISO/piso.png)
 
 [![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go_back.png)](#contents)
 
