@@ -13,10 +13,10 @@
 	| ------- | ------- | ------- |
 	| [Multiplier](#multiplier) | [Divider](#divider) | [Sorting network](#sorting-network) | 
 	| [D flip-flop](#d-flip-flop) | [Serial in parallel out (SIPO)](#serial-in-parallel-out-sipo) | [Parallel in serial out (PISO)](#parallel-in-serial-out-piso) |
-	| [Counter](#counters) | [MOD-N counter](#mod-n-counter) | [Frequency Dividers](#frequency-dividers) | 
-	| [Linear feedback shift register (LFSR)](#linear-feedback-shift-register-LFSR) | [Sequence Detector](#sequence-detector) | [Register File](#register-file) |
-	| [First-in-first-out (FIFO)](#first-in-first-out-fifo) | [Last-in-first-out (LIFO)](#last-in-first-out-lifo) | [Gray counter](#gray-counter) | 
-	| [Fibonacci counter](#fibonacci-counter) | [Round robin arbiter](#round-robin-arbiter) |   |
+	| [Counter](#counters) | [MOD-N counter](#mod-n-counter) | [Gray counter](#gray-counter) |
+	| [Fibonacci counter](#fibonacci-counter) | [Frequency Dividers](#frequency-dividers) | [Linear feedback shift register (LFSR)](#linear-feedback-shift-register-LFSR) |
+	| [Sequence Detector](#sequence-detector) | [Register File](#register-file) | [First-in-first-out (FIFO)](#first-in-first-out-fifo) |
+	| [Last-in-first-out (LIFO)](#last-in-first-out-lifo) | [Round robin arbiter](#round-robin-arbiter) |  |
 
 - Single-cycle CPU
 
