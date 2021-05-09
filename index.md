@@ -10,15 +10,18 @@
 - [Basic hardware components](#basic-hardware-components)
 	| [Half adder](#half-adder) | [Full adder](#full-adder) | [Shifter and Rotator](#shifter-and-rotator) |
 	| ------- | ------- | ------- |
-	| [Sorting network](#sorting-network) | [D flip-flop](#d-flip-flop) | [Divide by 2](#divide-by-2) |
+	| [Multiplier](#multiplier) | [Divider](#divider) | [Sorting network](#sorting-network) | 
+	| [D flip-flop](#d-flip-flop) | [Divide by 2](#divide-by-2) | [Linear feedback shift register (LFSR)](#linear-feedback-shift-register-LFSR) |
 	| [Serial in parallel out (SIPO)](#serial-in-parallel-out-sipo) | [Parallel in serial out (PISO)](#parallel-in-serial-out-piso) | [Counter](#counters) | 
 	| [MOD-N counter](#mod-n-counter) | [Sequence Detector](#sequence-detector) | [Register File](#register-file) |
 	| [First-in-first-out (FIFO)](#first-in-first-out-fifo) | [Last-in-first-out (LIFO)](#last-in-first-out-lifo) | [Gray counter](#gray-counter) | 
 	| [Fibonacci counter](#fibonacci-counter) | [Round robin arbiter](#round-robin-arbiter) | |
 
-- Pipelined CPU
+- Single-cycle CPU
 
-- Multicycle CPU
+- Multi-cycle CPU
+
+- Pipelined CPU
 
 - Tomasulo CPU
  
