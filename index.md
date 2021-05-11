@@ -735,6 +735,51 @@ endmodule
 
 ![div_by_12_waveform](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Frequency_Dividers/div_by_12_waveform.png)
 
+```verilog
+module div_by_12 (input clk, rst,
+                 output clk_out);
+  
+  // Registers to store the current count value and wire to compute the next count value
+  reg [3:0] Q, Q_next;
+  
+  // Registers to delay Q[2] signal by 2 clock period
+  reg Q_delay_1tp, Q_delay_2tp;
+  
+  
+  // Combinational logic to compute the next state logic (count value)
+  always @ (*) begin
+    if (Q == 4'd11)
+      Q_next = 4'h0;	// If counted to 11, set Q to 0
+    else
+      Q_next = Q + 1; 	// If not counted to 11, set Q to Q + 1
+  end
+  
+  // State memory
+  always @ (posedge clk) begin
+    if (rst)
+      Q <= 4'h0;	// If reset, set Q to 0
+    else
+      Q <= Q_next;	// If not reset, set Q to the next count value
+  end
+  
+  // Always block to delay Q[2] by 2 clock cycle
+  always @ (posedge clk) begin
+    if (rst) begin
+      Q_delay_1tp <= 1'b0;
+      Q_delay_2tp <= 1'b0;
+    end
+    else begin
+      Q_delay_1tp <= Q[2];
+      Q_delay_2tp <= Q_delay_1tp;
+    end
+  end
+  
+  // The clk/12 is set when Q[2]_delayed_by_2_cycle == 1 or Q[3] == 1
+  assign clk_out = Q_delay_2tp | Q[3];
+  
+endmodule
+```
+
 [![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go_back.png)](#contents)
 
 ## Linear Feedback Shift Register (LFSR)
