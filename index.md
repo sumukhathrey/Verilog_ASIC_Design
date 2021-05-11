@@ -678,6 +678,57 @@ Synthesized divide-by-2 circuit is as shown below -
 
 ![div_by_11_waveform](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Frequency_Dividers/div_by_11_waveform.png)
 
+```verilog
+module div_by_11 (input clk, rst,
+                 output clk_out);
+  
+  // Registers to store the current count value and wire to compute the next count value
+  reg [3:0] Q, Q_next;
+  
+  // Register to delay Q[2] signal by 1 clock period
+  reg Q_delay_1tp, 
+  
+  // Register to delay Q[2] signal by 1.5 clock period
+  reg Q_delay_1_5tp;
+  
+  // Combinational logic to compute the next state logic (count value)
+  always @ (*) begin
+    if (Q == 4'd10)
+      Q_next = 4'h0;	// If counted to 10, set Q to 0
+    else
+      Q_next = Q + 1; 	// If not counted to 10, set Q to Q + 1
+  end
+  
+  // State memory
+  always @ (posedge clk) begin
+    if (rst)
+      Q <= 4'h0;	// If reset, set Q to 0
+    else
+      Q <= Q_next;	// If not reset, set Q to the next count value
+  end
+  
+  // Always block to delay Q[2] by 1 clock cycle
+  always @ (posedge clk) begin
+    if (rst)
+      Q_delay_1tp <= 1'b0;
+    else
+      Q_delay_1tp <= Q[2];
+  end
+  
+  // Always block to delay Q[2] by 1.5 clock cycle
+  always @ (negedge clk) begin
+    if (rst)
+      Q_delay_1_5tp <= 1'b0;
+    else
+      Q_delay_1_5tp <= Q_delay_1tp;
+  end
+  
+  // The clk/11 is set when Q[2]_delayed_by_1.5_cycle == 1 or Q[3] == 1
+  assign clk_out = Q_delay_1_5tp | Q[3];
+  
+endmodule
+```
+
 ### Divide by 12
 
 ![div_by_12_table](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Frequency_Dividers/div_by_12_table.png)
