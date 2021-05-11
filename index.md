@@ -644,19 +644,45 @@ endmodule
 
 Synthesized divide-by-2 circuit is as shown below - 
 
-![div_by_2](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Divide_by_2/div_by_2.png)
+![div_by_2](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Frequency_Dividers/div_by_2.png)
 
 ### Divide by 3
 
+![div_by_3_waveform](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Frequency_Dividers/div_by_3_waveform.png)
+
 ### Divide by 4
+
+![div_by_4](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Frequency_Dividers/div_by_4_waveform.png)
 
 ### Divide by 5
 
+![div_by_5_table](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Frequency_Dividers/div_by_5_table.png)
+
+![div_by_5_waveform](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Frequency_Dividers/div_by_5_waveform.png)
+
 ### Divide by 6
+
+![div_by_6_table](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Frequency_Dividers/div_by_6_table.png)
+
+![div_by_6_waveform](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Frequency_Dividers/div_by_6_waveform.png)
 
 ### Divide by 9
 
+![div_by_9_table](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Frequency_Dividers/div_by_9_table.png)
+
+![div_by_9_waveform](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Frequency_Dividers/div_by_9_waveform.png)
+
 ### Divide by 11
+
+![div_by_11_table](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Frequency_Dividers/div_by_11_table.png)
+
+![div_by_11_waveform](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Frequency_Dividers/div_by_11_waveform.png)
+
+### Divide by 12
+
+![div_by_12_table](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Frequency_Dividers/div_by_12_table.png)
+
+![div_by_12_waveform](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Frequency_Dividers/div_by_12_waveform.png)
 
 [![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go_back.png)](#contents)
 
