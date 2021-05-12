@@ -618,9 +618,9 @@ endmodule
 
 The Fibonacci numbers together form a fibonacci sequence, `F(n)`, such that each number is the sum of the two preceding ones, starting from 0 and 1
 
-i.e., ***F(0) = 0***, ***F(1) = 1*** 
+i.e., `F(0) = 0`, `F(1) = 1`
 
-and ***F(n) = F(n-1) + F(n-1)*** for all ***n > 2***
+and `F(n) = F(n-1) + F(n-1)` for all `*n > 2`
 
 The Fibonacci sequence thus becomes,
 
