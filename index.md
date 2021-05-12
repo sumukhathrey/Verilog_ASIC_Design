@@ -660,7 +660,45 @@ Synthesized divide-by-2 circuit is as shown below -
 ![div_by_3_waveform](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Frequency_Dividers/div_by_3_waveform.png)
 
 ```verilog
-
+module div_by_3 (input clk, rst,
+                 output clk_out);
+  
+  // Registers to store the current count value and wire to compute the next count value
+  reg [1:0] Q, Q_next;
+  
+  // Register to delay Q[0] signal by 0.5 clock period
+  reg Q_delay_0_5tp;
+  
+  // Combinational logic to compute the next state logic (count value)
+  always @ (*) begin
+    case(Q)
+      2'b00: Q_next = 2'b01;
+      2'b01: Q_next = 2'b10;
+      2'b10: Q_next = 2'b00;
+      default: Q_next = 2'b00;
+    endcase
+  end
+  
+  // State memory
+  always @ (posedge clk) begin
+    if (rst)
+      Q <= 2'h0;	// If reset, set Q to 0
+    else
+      Q <= Q_next;	// If not reset, set Q to the next count value
+  end
+  
+  // Always block to delay Q[0] by 0.5 clock cycle
+  always @ (negedge clk) begin
+    if (rst)
+      Q_delay_0_5tp <= 1'b0;
+    else
+      Q_delay_0_5tp <= Q[0];
+  end
+  
+  // The clk/3 is set when Q[0]_delayed_by_0.5_cycle == 1 or Q[1] == 1
+  assign clk_out = Q_delay_0_5tp | Q[1];
+  
+endmodule
 ```
 
 ### Divide by 4
