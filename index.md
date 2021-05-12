@@ -616,7 +616,29 @@ endmodule
 
 ## Fibonacci counter
 
+The Fibonacci numbers together form a fibonacci sequence, `F(n)`, such that each number is the sum of the two preceding ones, starting from 0 and 1
+
+i.e., ***F(0) = 0***, ***F(1) = 1*** 
+
+and ***F(n) = F(n-1) + F(n-1)*** for all ***n > 2***
+
+The Fibonacci sequence thus becomes,
+
+	`0, 1, 1, 2, 3, 5, 8, 13, 21, ....`
+
+The fibonacci numbers are used in various [computational applications](https://www.quora.com/What-are-the-practical-applications-of-Fibonacci-other-than-used-to-teach-programming) involving hardware:
+- Pseudorandom number generators
+- Determining the greatest common divisor
+- A one-dimensional optimization method, called the Fibonacci search technique
+- The Fibonacci number series is used for optional lossy compression
+
+Instead of performing the fibonacci computation using software which consumes a lot of time it is easier to faster to implement the fibonacci counter in hardware. 
+
+Fibonacci Counter can be implemented in hardware with two registers A and B to store the initial numbers in the series, i.e., A = 1 and B = 0. The sum of the both A and B can be stored in A and the value in A can be moved into B and register B is used as the output. However, in the 2 register format, after reset we don't see the initial sequence number '0'. This can be resolved by adding a register C in series. The same is shown in the following waveform and schematic.
+
 ![fibonacci_counter](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Fibonacci/fibonacci_counter.png)
+
+The same can be implemented in verilog as -
 
 ```verilog
 module fibC (input clk, rst,
