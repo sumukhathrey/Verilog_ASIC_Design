@@ -646,6 +646,10 @@ module fibC (input clk, rst,
 endmodule
 ```
 
+[![Run on EDA](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_run-on-eda-playground.png)](https://www.edaplayground.com/x/An9k)
+
+![fib_counter_wave](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Fibonacci_Counter/gray_counter_wave.png)
+
 [![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go_back.png)](#contents)
 
 ## Frequency Dividers
