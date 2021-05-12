@@ -631,15 +631,24 @@ The most basic a 1-bit counter also doubles up as a divide-by-2 circuit since fo
 A synchronous active-high reset divide-by-2 circuit can be written in verilog as:
 
 ```verilog
-module clk_div (input clk, srst, 
-		output clk_out);
-    always @ (posedge clk_in) begin
-        if (srst) 
-            clk_out <= 1'b0;
-        else
-            clk_out <= ~clk_out;
-    end
-endmodule  
+module div_by_2 (input clk, rst,
+                 output clk_out);
+  
+  // Register to store the current count value
+  reg Q;
+  
+  // State memory
+  always @ (posedge clk) begin
+    if (rst)
+      Q <= 1'b0;	// If reset, set Q to 0
+    else
+      Q <= ~Q;		// If not reset, set Q to the next count value
+  end
+  
+  // The clk/2 is set when Q == 1
+  assign clk_out = Q;
+  
+endmodule 
 ```
 
 Synthesized divide-by-2 circuit is as shown below - 
@@ -650,9 +659,45 @@ Synthesized divide-by-2 circuit is as shown below -
 
 ![div_by_3_waveform](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Frequency_Dividers/div_by_3_waveform.png)
 
+```verilog
+
+```
+
 ### Divide by 4
 
 ![div_by_4](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Frequency_Dividers/div_by_4_waveform.png)
+
+```verilog
+module div_by_4 (input clk, rst,
+                 output clk_out);
+  
+  // Registers to store the current count value and wire to compute the next count value
+  reg [1:0] Q, Q_next;
+  
+  // Combinational logic to compute the next state logic (count value)
+  always @ (*) begin
+    case(Q)
+      2'b00: Q_next = 2'b01;
+      2'b01: Q_next = 2'b10;
+      2'b10: Q_next = 2'b11;
+      2'b11: Q_next = 2'b00;
+      default: Q_next = 2'b00;
+    endcase
+  end
+  
+  // State memory
+  always @ (posedge clk) begin
+    if (rst)
+      Q <= 2'h0;	// If reset, set Q to 0
+    else
+      Q <= Q_next;	// If not reset, set Q to the next count value
+  end
+  
+  // The clk/4 is set when Q[1] == 1
+  assign clk_out = Q[1];
+  
+endmodule
+```
 
 ### Divide by 5
 
@@ -660,11 +705,94 @@ Synthesized divide-by-2 circuit is as shown below -
 
 ![div_by_5_waveform](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Frequency_Dividers/div_by_5_waveform.png)
 
+```verilog
+module div_by_5 (input clk, rst,
+                 output clk_out);
+  
+  // Registers to store the current count value and wire to compute the next count value
+  reg [2:0] Q, Q_next;
+  
+  // Register to delay Q[1] signal by 0.5 clock period
+  reg Q_delay_0_5tp;
+  
+  // Combinational logic to compute the next state logic (count value)
+  always @ (*) begin
+    if (Q == 3'd4)
+      Q_next = 3'h0;	// If counted to 4, set Q to 0
+    else
+      Q_next = Q + 1; 	// If not counted to 4, set Q to Q + 1
+  end
+  
+  // State memory
+  always @ (posedge clk) begin
+    if (rst)
+      Q <= 3'h0;	// If reset, set Q to 0
+    else
+      Q <= Q_next;	// If not reset, set Q to the next count value
+  end
+  
+  // Always block to delay Q[1] by 0.5 clock cycle
+  always @ (negedge clk) begin
+    if (rst)
+      Q_delay_0_5tp <= 1'b0;
+    else
+      Q_delay_0_5tp <= Q[1];
+  end
+  
+  // The clk/5 is set when Q[1]_delayed_by_0.5_cycle == 1 or Q[2] == 1
+  assign clk_out = Q_delay_0_5tp | Q[2];
+  
+endmodule
+```
+
 ### Divide by 6
 
 ![div_by_6_table](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Frequency_Dividers/div_by_6_table.png)
 
 ![div_by_6_waveform](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Frequency_Dividers/div_by_6_waveform.png)
+
+```verilog
+module div_by_6 (input clk, rst,
+                 output clk_out);
+  
+  // Registers to store the current count value and wire to compute the next count value
+  reg [2:0] Q, Q_next;
+  
+  // Registers to delay Q[1] signal by 1 clock period
+  reg Q_delay_1tp;
+  
+  
+  // Combinational logic to compute the next state logic (count value)
+  always @ (*) begin
+    if (Q == 3'd5)
+      Q_next = 3'h0;	// If counted to 5, set Q to 0
+    else
+      Q_next = Q + 1; 	// If not counted to 5, set Q to Q + 1
+  end
+  
+  // State memory
+  always @ (posedge clk) begin
+    if (rst)
+      Q <= 3'h0;	// If reset, set Q to 0
+    else
+      Q <= Q_next;	// If not reset, set Q to the next count value
+  end
+  
+  // Always block to delay Q[1] by 1 clock cycle
+  always @ (posedge clk) begin
+    if (rst) begin
+      Q_delay_1tp <= 1'b0;
+    end
+    else begin
+      Q_delay_1tp <= Q[1];
+    end
+  end
+  
+  // The clk/6 is set when Q[1]_delayed_by_1_cycle == 1 or Q[2] == 1
+  assign clk_out = Q_delay_1tp | Q[2];
+  
+endmodule
+```
 
 ### Divide by 9
 
@@ -707,7 +835,7 @@ module div_by_9 (input clk, rst,
       Q_delay_0_5tp <= Q[2];
   end
   
-  // The clk/11 is set when Q[2]_delayed_by_0.5_cycle == 1 or Q[3] == 1
+  // The clk/9 is set when Q[2]_delayed_by_0.5_cycle == 1 or Q[3] == 1
   assign clk_out = Q_delay_0_5tp | Q[3];
   
 endmodule
@@ -727,7 +855,7 @@ module div_by_11 (input clk, rst,
   reg [3:0] Q, Q_next;
   
   // Register to delay Q[2] signal by 1 clock period
-  reg Q_delay_1tp, 
+  reg Q_delay_1tp;
   
   // Register to delay Q[2] signal by 1.5 clock period
   reg Q_delay_1_5tp;
