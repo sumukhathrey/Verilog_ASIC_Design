@@ -633,8 +633,8 @@ module fibC (input clk, rst,
     end
     else begin
       RegA <= RegB[3] ? 4'h1 : RegA + RegB; // if RegB == 8, reset RegA
-      RegB <= RegB[3] ? 4'h0 : RegA;		// if RegB == 8, reset RegB
-      RegC <= RegB;							// RegC is a synchronization register
+      RegB <= RegB[3] ? 4'h0 : RegA;	// if RegB == 8, reset RegB
+      RegC <= RegB;	// RegC is a synchronization register
     end
   end
   
