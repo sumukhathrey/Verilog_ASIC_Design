@@ -664,7 +664,9 @@ Here, all the following frequency dividers have integer dividers `n = 1,2,3,4,5.
 
 The most basic a 1-bit counter also doubles up as a divide-by-2 circuit since for any given clock frequency, the output of the 1 bit counter is 1/2 the frequency of the cock signal. 
 
-A synchronous active-high reset divide-by-2 circuit can be written in verilog as:
+![div_by_2](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Frequency_Dividers/div_by_2.png)
+
+The same can be modelled in verilog as:
 
 ```verilog
 module div_by_2 (input clk, rst,
@@ -687,15 +689,16 @@ module div_by_2 (input clk, rst,
 endmodule 
 ```
 
-Synthesized divide-by-2 circuit is as shown below - 
-
-![div_by_2](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Frequency_Dividers/div_by_2.png)
 
 ### Divide by 3
 
 To implement a divide by 3, we need to count to 3 and so we will need two flip-flops to count states `2'b00, 2'b01, 2'b10`. However since dividing factor is not equal to `2^n` we need additional flip-flops to get a 50% duty-cycle. We can achieve this by shifting the state ***Q[0]*** by 1/2 clock cycle and then ***OR***ing with ***Q[1]***. The 1/2 clock cycle shift is made by using a negative edge-triggered flip-flop.
 
 ![div_by_3_waveform](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Frequency_Dividers/div_by_3_waveform.png)
+
+Here, tp stands for ***time period of the clock***, i.e. ***+ 0.5 tp*** stands for the signal delayed by 0.5 clock period. 
+
+The same can be modelled in verilog as:
 
 ```verilog
 module div_by_3 (input clk, rst,
@@ -783,7 +786,13 @@ To implement a divide by 5, we need to count to 3 and so we will need 3 flip-flo
 
 ![div_by_5_table](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Frequency_Dividers/div_by_5_table.png)
 
+The table shows the current counter state and the next state. The first column shows the clock divider output. It must be noted the `0/1` and `1/0` refers to the signal changing from `0 -> 1` and `1 -> 0` respectively at the falling edge of the clock.
+
 ![div_by_5_waveform](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Frequency_Dividers/div_by_5_waveform.png)
+
+Here, tp stands for ***time period of the clock***, i.e. ***+ 0.5 tp*** stands for the signal delayed by 0.5 clock period. 
+
+The same can be modelled in verilog as:
 
 ```verilog
 module div_by_5 (input clk, rst,
@@ -831,7 +840,13 @@ To implement a divide by 6, we need to count to 6 and so we will need 3 flip-flo
 
 ![div_by_6_table](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Frequency_Dividers/div_by_6_table.png)
 
+The table shows the current counter state and the next state. The first column shows the clock divider output.
+
 ![div_by_6_waveform](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Frequency_Dividers/div_by_6_waveform.png)
+
+Here, tp stands for ***time period of the clock***, i.e. ***+ 1 tp*** stands for the signal delayed by 1 clock period. 
+
+The same can be modelled in verilog as:
 
 ```verilog
 module div_by_6 (input clk, rst,
@@ -882,7 +897,13 @@ To implement a divide by 9, we need to count upto 9 and so we will need two flip
 
 ![div_by_9_table](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Frequency_Dividers/div_by_9_table.png)
 
+The table shows the current counter state and the next state. The first column shows the clock divider output. It must be noted the `0/1` and `1/0` refers to the signal changing from `0 -> 1` and `1 -> 0` respectively at the falling edge of the clock. All other values change at the rising edge of the clock.
+
 ![div_by_9_waveform](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Frequency_Dividers/div_by_9_waveform.png)
+
+Here, tp stands for ***time period of the clock***, i.e. ***+ 0.5 tp*** stands for the signal delayed by 0.5 clock period. 
+
+The same can be modelled in verilog as:
 
 ```verilog
 module div_by_9 (input clk, rst,
@@ -931,7 +952,13 @@ To implement a divide by 11, we need to count upto 11 and so we will need two fl
 
 ![div_by_11_table](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Frequency_Dividers/div_by_11_table.png)
 
+The table shows the current counter state and the next state. The first column shows the clock divider output. It must be noted the `0/1` and `1/0` refers to the signal changing from `0 -> 1` and `1 -> 0` respectively at the falling edge of the clock. All other values change at the rising edge of the clock.
+
 ![div_by_11_waveform](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Frequency_Dividers/div_by_11_waveform.png)
+
+Here, tp stands for ***time period of the clock***, i.e. ***+ 1.5 tp*** stands for the signal delayed by 1.5 clock periods. 
+
+The same can be modelled in verilog as:
 
 ```verilog
 module div_by_11 (input clk, rst,
@@ -990,7 +1017,13 @@ To implement a divide by 12, we need to count upto 12 and so we will need two fl
 
 ![div_by_12_table](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Frequency_Dividers/div_by_12_table.png)
 
+The table shows the current counter state and the next state. The first column shows the clock divider output.
+
 ![div_by_12_waveform](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Frequency_Dividers/div_by_12_waveform.png)
+
+Here, tp stands for ***time period of the clock***, i.e. ***+ 2 tp*** stands for the signal delayed by 2 clock periods. 
+
+The same can be modelled in verilog as:
 
 ```verilog
 module div_by_12 (input clk, rst,
