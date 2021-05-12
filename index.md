@@ -654,7 +654,11 @@ endmodule
 
 ## Frequency Dividers
 
-The frequency dividers can be implemented through the means of counters.
+Frequency divider is any curcuit that divides the frequency of the input signal, say `f` by a factor `n`, such that the frequency of the output signal is `f/n`. The frequency dividers with uneven pulse widths are very simple to be implemented with the use of counters and mod-n counters discussed earlier. However, we need additional circuitry to create a frequency divider with ***50% duty cycle***. 
+
+Here, all the following frequency dividers have integer dividers `n = 1,2,3,4,5....` and have a ***50% duty cycle***. 
+
+[![Run on EDA](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_run-on-eda-playground.png)](https://www.edaplayground.com/x/DMiK)
 
 ### Divide by 2
 
@@ -688,6 +692,8 @@ Synthesized divide-by-2 circuit is as shown below -
 ![div_by_2](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Frequency_Dividers/div_by_2.png)
 
 ### Divide by 3
+
+To implement a divide by 3, we need to count to 3 and so we will need two flip-flops to count states `2'b00, 2'b01, 2'b10`. However since dividing factor is not equal to `2^n` we need additional flip-flops to get a 50% duty-cycle. We can achieve this by shifting the state ***Q[0]*** by 1/2 clock cycle and then ***OR***ing with ***Q[1]***. The 1/2 clock cycle shift is made by using a negative edge-triggered flip-flop.
 
 ![div_by_3_waveform](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Frequency_Dividers/div_by_3_waveform.png)
 
@@ -735,6 +741,8 @@ endmodule
 
 ### Divide by 4
 
+To implement a divide by 4, we need to count to 4 and so we will need two flip-flops to count states `2'b00, 2'b01, 2'b10, 2'b10`. We can use the state Q[1] as the output which has the frequency `fclk/4`.
+
 ![div_by_4](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Frequency_Dividers/div_by_4_waveform.png)
 
 ```verilog
@@ -770,6 +778,8 @@ endmodule
 ```
 
 ### Divide by 5
+
+To implement a divide by 5, we need to count to 3 and so we will need 3 flip-flops to count states `2'b000, 2'b001, 2'b010, 2'b011, 2'b100`. However since dividing factor is not equal to `2^n` we need additional flip-flops to get a 50% duty-cycle. We can achieve this by shifting the state ***Q[1]*** by 1/2 clock cycle and then ***OR***ing with ***Q[2]***. The 1/2 clock cycle shift is made by using a negative edge-triggered flip-flop.
 
 ![div_by_5_table](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Frequency_Dividers/div_by_5_table.png)
 
@@ -816,6 +826,8 @@ endmodule
 ```
 
 ### Divide by 6
+
+To implement a divide by 6, we need to count to 6 and so we will need 3 flip-flops to count states `2'b000, 2'b001, 2'b010, 2'b011, 2'b100, 2'b101`. However since dividing factor is not equal to `2^n` we need additional flip-flops to get a 50% duty-cycle. We can achieve this by shifting the state ***Q[1]*** by 1 clock cycle and then ***OR***ing with ***Q[2]***. The 1 clock cycle shift is made by using a positive edge-triggered flip-flop.
 
 ![div_by_6_table](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Frequency_Dividers/div_by_6_table.png)
 
@@ -866,6 +878,8 @@ endmodule
 
 ### Divide by 9
 
+To implement a divide by 9, we need to count upto 9 and so we will need two flip-flops to count states `4'b0000, 4'b0001, .... 4'b0111, 4'b1000`. However since dividing factor is not equal to `2^n` we need additional flip-flops to get a 50% duty-cycle. We can achieve this by shifting the state ***Q[2]*** by 1/2 clock cycle and then ***OR***ing with ***Q[3]***. The 1/2 clock cycle shift is made by using a negative edge-triggered flip-flop.
+
 ![div_by_9_table](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Frequency_Dividers/div_by_9_table.png)
 
 ![div_by_9_waveform](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Frequency_Dividers/div_by_9_waveform.png)
@@ -912,6 +926,8 @@ endmodule
 ```
 
 ### Divide by 11
+
+To implement a divide by 11, we need to count upto 11 and so we will need two flip-flops to count states `4'b0000, 4'b0001, .... 4'b1001, 4'b1010`. However since dividing factor is not equal to `2^n` we need additional flip-flops to get a 50% duty-cycle. We can achieve this by shifting the state ***Q[2]*** by 1.5 clock cycles and then ***OR***ing with ***Q[3]***. The 1.5 clock cycle shift is made by using a positive edge-triggered flip flop followed by a negative edge-triggered flip-flop.
 
 ![div_by_11_table](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Frequency_Dividers/div_by_11_table.png)
 
@@ -969,6 +985,8 @@ endmodule
 ```
 
 ### Divide by 12
+
+To implement a divide by 12, we need to count upto 12 and so we will need two flip-flops to count states `4'b0000, 4'b0001, .... 4'b1010, 4'b1011`. However since dividing factor is not equal to `2^n` we need additional flip-flops to get a 50% duty-cycle. We can achieve this by shifting the state ***Q[2]*** by 2 clock cycles and then ***OR***ing with ***Q[3]***. The 1/2 clock cycle shift is made by using a 2 positive edge-triggered flip-flops in series.
 
 ![div_by_12_table](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Frequency_Dividers/div_by_12_table.png)
 
