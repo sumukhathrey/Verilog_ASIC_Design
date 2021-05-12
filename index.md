@@ -620,11 +620,9 @@ The Fibonacci numbers together form a fibonacci sequence, `F(n)`, such that each
 
 i.e., `F(0) = 0`, `F(1) = 1`
 
-and `F(n) = F(n-1) + F(n-1)` for all `*n > 2`
+and `F(n) = F(n-1) + F(n-1)` for all `n > 2`
 
-The Fibonacci sequence thus becomes,
-
-	`0, 1, 1, 2, 3, 5, 8, 13, 21, ....`
+The Fibonacci sequence thus becomes, `0, 1, 1, 2, 3, 5, 8, 13, 21, ....`
 
 The fibonacci numbers are used in various [computational applications](https://www.quora.com/What-are-the-practical-applications-of-Fibonacci-other-than-used-to-teach-programming) involving hardware:
 - Pseudorandom number generators
