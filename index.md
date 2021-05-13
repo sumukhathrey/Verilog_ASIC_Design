@@ -1460,6 +1460,71 @@ endmodule
 
 ### Synchronous FIFO with odd depth
 
+Typically, a FIFO has ***2^n*** locations and for such a FIFO a ***n+1*** bit write and read pointers are used. However, in a FIFO with odd depth, i.e., which has locations not equal to ***2^n*** we will continue to use a ***n+1*** bit write and read pointers but these will be implemented as a mod-n counter.
+
+For example, say we need to design a FIFO with 6 locations we need 4-bit read and write pointers of which the lower three bits will sequence from `3'b000, 3'b001, 3'b010, 3'b011, 3'b100, 3'b101` to point to the FIFO memory locations.
+
+The same can be modelled in verilog as,
+
+```verilog
+module FIFO(input clk, wen, ren, rst,
+            input [7:0] data_in,
+            output full, empty,
+            output [7:0] data_out);
+  
+  // FIFO write and read pointer registers (n+1) bit wide
+  reg [3:0] wptr, rptr;
+  
+  // FIFO memory array - 8 locations of 8 bits each
+  reg [7:0] mem [0:5];
+  
+  // Computation of full and empty signals based on the current
+  // read and qrite pointers
+  assign full = (wptr ^ rptr) == 4'h8;
+  assign empty = wptr == rptr;
+  
+  // read enable qualified and write enable qualified are generated
+  // based on the write/read request and full and empty status of FIFO
+  assign wenq = ~full & wen;
+  assign renq = ~empty & ren;
+  
+  always @ (posedge clk) begin
+    if (rst) begin
+      // FIFO memory is initialized to 0 (not necessary)
+      for (integer i = 0; i < 8; i=i+1)
+        mem[i] <= 8'h00;
+      
+      // Write and read pointers are initialized to 0
+      wptr <= 4'h0;
+      rptr <= 4'h0;
+    end
+    else begin
+      // Write pointer is incremented on valid write request
+      // FIFO memory is updated with data for valid write request
+      if (wenq) begin
+        if (wptr[2:0] == 3'b101)
+          wptr <= {~wptr[3], 3'b000};
+        else
+          wptr <= wptr+1;
+        mem[wptr[2:0]] <= datain;
+      end
+      
+      // Read pointer is incremented on valid read request
+      if (renq) begin
+        if (rptr[2:0] == 3'b101)
+          rptr <= {~rptr[3], 3'b000};
+        else
+          rptr <= rptr+1;
+      end
+    end
+  end
+  
+  // Read data port
+  assign dataout = mem[rptr[2:0]];
+  
+endmodule
+```
+
 [![Run on EDA](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_run-on-eda-playground.png)](https://www.edaplayground.com/x/Jmkw)
 
 [![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go_back.png)](#contents)
