@@ -158,6 +158,8 @@ However, sometines a latch can be inferred in a verilog code unexpectedly due to
 
 # Basic hardware components
 
+======
+
 ## Adders
 
 ### Half adder
