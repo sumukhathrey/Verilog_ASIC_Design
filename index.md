@@ -150,11 +150,11 @@ However, sometines a latch can be inferred in a verilog code unexpectedly due to
  
  
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Basic hardware components
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ## Adders
 
 ### Half adder
@@ -217,7 +217,6 @@ However, sometines a latch can be inferred in a verilog code unexpectedly due to
    endmodule
    ```
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Shifter and Rotator
 
@@ -237,16 +236,13 @@ However, sometines a latch can be inferred in a verilog code unexpectedly due to
 [![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go_back.png)](#contents)
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Multiplier
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Divider
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------   
 ## Sorting network
 	
@@ -371,7 +367,6 @@ endmodule
 [![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go_back.png)](#contents)
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## D flip flop
 
@@ -425,7 +420,6 @@ endmodule
 
 [![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go_back.png)](#contents)
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Serial in parallel out (SIPO)
@@ -492,7 +486,6 @@ endmodule
 [![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go_back.png)](#contents)
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Parallel in serial out (PISO)
 
@@ -534,7 +527,6 @@ endmodule
 [![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go_back.png)](#contents)
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Counters
 
@@ -548,7 +540,6 @@ endmodule
 
 ### Sequence counter
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## MOD-N Counters
@@ -569,7 +560,6 @@ endmodule
 
 ### MOD-12 counter
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Gray counter
@@ -645,7 +635,6 @@ endmodule
 [![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go_back.png)](#contents)
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Fibonacci counter
 
@@ -705,7 +694,6 @@ endmodule
 
 [![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go_back.png)](#contents)
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Frequency Dividers
@@ -1247,6 +1235,8 @@ Figure: Sequence Detector 1010 - Mealy overlapping waveform.
 
    The sequence can also be detected using a simple n-bit shift register, where "n" represents the length of the sequence to be detected (in this case 4) and a comparator can be used to check the state of these n-bit registers. However, consider a sequence which has 20 bits, then we will need a 20 bit shift register which happens to be extremely costly in terms of area. The same can be acheived using a state machine with just 5 flip-flops and some additional combinational logic.
    
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+   
 ### Sequence Detector - 1001
 
 ![seqD_1001](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector_1010/seqD_1001.png)
@@ -1346,6 +1336,8 @@ Figure: Sequence Detector 1001 - Mealy overlapping waveform.
    
 [![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go_back.png)](#contents)
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ## Register File
 
 Register File is a type of memory block (typically used in a CPU), a m-set of storage cells to store data n-bit wide. It is used to hold data and fetch data based on the need. To perform this function, the register has the ***write operation*** to enable writing data to the register locations and ***read operation*** to enable reading the register locations. To write and read data the register file has ***write pointer*** and ***read pointer*** inputs which can be in a binary encoded or one-hot coded fashion. The number of writes and reads that can be performed in a clock cycle decide the number of ***write port*** and ***read ports*** needed in a register file.
@@ -1400,6 +1392,8 @@ endmodule
 ![reg_file_wave](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Register_File/reg_file_wave.png)
 
 [![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go_back.png)](#contents)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## First-in-first-out (FIFO)
 
