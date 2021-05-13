@@ -481,6 +481,12 @@ endmodule
   
 ## Parallel in serial out (PISO)
 
+Parallel-in serial-out is a one of the basic elements of ***serializer-deserializer (SerDes) circuits***. The PISO allows the parallel loading of data following which the data can be shifted out serially from either the MSB or the LSB side. This is how a parallel to serial conversion takes place.
+
+To load the data we need as many flip-flops as the data width of the parallel loading, i.e., if the data width is 8 bits, we need 8 flip flops to store these 8 bits. To differentiate between a load or shift operation we need an additional input which can be multiplexed for indicating either shift and load. If the signal is 1 it indicates a load and if 0 a shift. 
+
+The loading can be be asynchronous needing a flip-flop with set/reset pins. However, here we will be looking at a circuit with synchronous loading and shifting of 4-bit data
+
 ![piso_block](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/PISO/piso_block.png)
 
 ![piso_basic](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/PISO/piso.png)
