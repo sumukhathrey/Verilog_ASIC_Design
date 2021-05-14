@@ -568,6 +568,8 @@ The gray code is a type of binary number ordering such that each number differes
 
 The most simple implementation of a gray code counter will be a binary counter followed by a ***binary to gray*** converter. However, the datapath is huge resulting in a very low clock frequency. This is a good motive to pursue a design to implement a gray counter with a smaller datapath.
 
+![gray_counter_circuit](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Gray_Counter/gray_counter_basic.png)
+
 Consider a 4-bit gray code `gray[3:0]` in the following table.
 
 ![gray_code_table](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Gray_Counter/gray_code_table.png)
