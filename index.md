@@ -1141,7 +1141,7 @@ endmodule
    
 ### Sequence Detector - 1010
 
-   ![seqD_1010](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector_1010/seqD_1010.png)
+   ![seqD_1010](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector/seqD_1010.png)
    
    Figure: Sequence Detector 1010 - Moore and Mealy; non-overlapping and overlapping state machines. 
    
@@ -1182,12 +1182,12 @@ endmodule
 
 [![Run on EDA](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_run-on-eda-playground.png)](https://www.edaplayground.com/x/iK_p)
 
-![moore_1010_wave1](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector_1010/moore_1010_non_overlap.png)
+![moore_1010_wave1](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector/moore_1010_non_overlap.png)
 
 Figure: Sequence Detector 1010 - Moore non-overlapping waveform. 
 
 
-![moore_1010_wave2](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector_1010/moore_1010_overlap.png)
+![moore_1010_wave2](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector/moore_1010_overlap.png)
 
 Figure: Sequence Detector 1010 - Moore overlapping waveform. 
     
@@ -1234,21 +1234,23 @@ endmodule
 
 [![Run on EDA](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_run-on-eda-playground.png)](https://www.edaplayground.com/x/HbJV)
 
-![mealy_1010_wave1](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector_1010/mealy_1010_non_overlap.png)
+![mealy_1010_wave1](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector/mealy_1010_non_overlap.png)
 
 Figure: Sequence Detector 1010 - Mealy non-overlapping waveform. 
 
-![mealy_1010_wave2](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector_1010/mealy_1010_overlap.png)
+![mealy_1010_wave2](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector/mealy_1010_overlap.png)
 
 Figure: Sequence Detector 1010 - Mealy overlapping waveform. 
 
    The sequence can also be detected using a simple n-bit shift register, where "n" represents the length of the sequence to be detected (in this case 4) and a comparator can be used to check the state of these n-bit registers. However, consider a sequence which has 20 bits, then we will need a 20 bit shift register which happens to be extremely costly in terms of area. The same can be acheived using a state machine with just 5 flip-flops and some additional combinational logic.
    
+![seqD_1010_shiftReg](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector/seqD_1010_shiftReg.png)
+   
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
    
 ### Sequence Detector - 1001
 
-![seqD_1001](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector_1010/seqD_1001.png)
+![seqD_1001](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector/seqD_1001.png)
 
 ```verilog
 module seq_1001_moore (input din, clk, rst,
@@ -1286,11 +1288,11 @@ endmodule
 
 [![Run on EDA](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_run-on-eda-playground.png)](https://www.edaplayground.com/x/9V9V)
 
-![mealy_1001_wave1](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector_1010/mealy_1010_non_overlap.png)
+![mealy_1001_wave1](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector/mealy_1010_non_overlap.png)
 
 Figure: Sequence Detector 1001 - Mealy non-overlapping waveform. 
 
-![mealy_1001_wave2](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector_1010/mealy_1010_overlap.png)
+![mealy_1001_wave2](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector/mealy_1010_overlap.png)
 
 Figure: Sequence Detector 1001 - Mealy overlapping waveform.
 
@@ -1335,11 +1337,11 @@ endmodule
 
 [![Run on EDA](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_run-on-eda-playground.png)](https://www.edaplayground.com/x/7VVS)
 
-![mealy_1001_wave1](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector_1010/mealy_1010_non_overlap.png)
+![mealy_1001_wave1](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector/mealy_1010_non_overlap.png)
 
 Figure: Sequence Detector 1001 - Mealy non-overlapping waveform. 
 
-![mealy_1001_wave2](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector_1010/mealy_1010_overlap.png)
+![mealy_1001_wave2](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Sequence_Detector/mealy_1010_overlap.png)
 
 Figure: Sequence Detector 1001 - Mealy overlapping waveform.
    
@@ -1426,7 +1428,7 @@ Additional info on deciding the fifo depth can be found at [Calculation of FIFO 
 
 ***Synchronous FIFO*** - The type of FIFOs which have common write and read clock are called synchronous FIFO. Synchronous FIFOs are very common in a processor/controller ICs which work on a common system clock. Since all the sub-systems work on the same system clock they can make use of sync-FIFOs with a possible need for skew handling.
 
-![fifo_sync](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Synchronous_FIFO/fifo_sync.png)
+![fifo_sync](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/FIFO/fifo_sync.png)
 
 ```verilog
 module fifo(input clk, rst, wen, ren,
@@ -1492,7 +1494,7 @@ endmodule
 
 [![Run on EDA](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_run-on-eda-playground.png)](https://www.edaplayground.com/x/KpjL)
 
-![fifo_sync_wave](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Synchronous_FIFO/fifo_sync_wave.png)
+![fifo_sync_wave](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/FIFO/fifo_sync_wave.png)
 
 [![go_back](https://raw.githubusercontent.com/sumukhathrey/Verilog/main/Docs/Images/button_go_back.png)](#contents)
 
